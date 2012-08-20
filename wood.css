@@ -1,0 +1,23 @@
+body {
+	font-family: "Helvetica Neue";
+	font-size: 12px;
+	margin: 0px;
+	padding: 0px;
+}
+
+.v-topRowNameLabel {
+	font-size: 12px;
+	font-weight: bold;
+	padding-top: 3px;
+}
+
+.v-woodButton {
+	padding: 4px 6px;
+	background-color: "white";
+	color: "black";
+	float: left;
+	pointer-events: "none";
+	cursor: "pointer";
+	border-left-right: solid;
+	border-color: "black";
+}

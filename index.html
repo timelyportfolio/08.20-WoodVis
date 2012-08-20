@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title> </title>
+	<!--[if lt IE 9]>
+	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+	<script type="text/javascript" src="js/lib/d3.v2.js"></script>
+	<script type="text/javascript" src="js/dataTransform.js"></script>
+	<script type="text/javascript" src="js/chart1.js"></script>
+	<script type="text/javascript" src="js/chart1.cityView.js"></script>
+	<script type="text/javascript" src="js/chart1.condensedView.js"></script>
+	<script type="text/javascript" src="js/chart1.labelVarView.js"></script>
+	<script type="text/javascript" src="js/chart1.varView.js"></script>
+	<script type="text/javascript" src="js/main.js"></script>
+
+	<link type="text/css" rel="stylesheet" href="wood.css"/>
+
+	<script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
+</head>
+<body>
+
+	<section id="chartVar" style="margin-top: 40px"></section>
+
+<script type="text/javascript">
+
+d3.json("wood.json", function LoadJSON (json) {
+	data = json
+	data.cities.forEach(function (d,i) {
+		dataTransform.filterCity(d.name)
+		dataTransform.calculateVar(d, selectedWood)
+		dataTransform.calculateMonthArea(d)
+	})
+	data.cities.sort(function (a,b) {
+		return b.area - a.area
+	})
+	data.wood.sort(function (a,b) {
+		return +b[selectedVariation] - a[selectedVariation]
+	})
+	layout(layoutData)
+})
+
+</script>
+</body>
+</html>
