@@ -5,6 +5,12 @@ body {
 	padding: 0px;
 }
 
+.v-row::after, .v-row::before {
+	content: "";
+	clear: both;
+	display: table;
+}
+
 .v-topRowNameLabel {
 	font-size: 12px;
 	font-weight: bold;

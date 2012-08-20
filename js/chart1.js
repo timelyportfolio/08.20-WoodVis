@@ -1,4 +1,33 @@
 var chart1 = {}
+chart1.title = function (rawSelection) {
+	var sel = d3.select(rawSelection)
+	sel.style({
+		height: "auto"
+	})
+	sel.append("p")
+		.text("Wood Size Variation")
+		.style({
+			"text-align": "left",
+			padding: "0 0 20px",
+			"margin": "0px",
+			"font-size": "40px",
+			"font-weight": "bold"
+		})
+}
+chart1.titleDescription = function (rawSelection) {
+	var sel = d3.select(rawSelection)
+	sel.style({
+		height: "auto"
+	})
+	sel.append("p")
+		.html("A <strong>month collumn</strong> shows the size variation during the month and on the rest of the year from the month")
+		.style({
+			padding: "0 0px 0 0px",
+			"margin": "0px",
+			"font-size": "12px",
+			"font-style": "italic"
+		})
+}
 chart1.cityNameLabel = function (rawSelection) {
 	var sel = d3.select(rawSelection)
 	sel.text("Cities")
@@ -7,7 +36,7 @@ chart1.cityNameLabel = function (rawSelection) {
 chart1.selectWoodVarTypeView = function (rawSelection) {
 	var sel = d3.select(rawSelection)
 	sel.append("div")
-		.text("Wood Variation")
+		.text("Variation Type")
 		.style({
 			"float": "left",
 			"margin-right": "10px",

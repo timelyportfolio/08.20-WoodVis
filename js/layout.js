@@ -5,14 +5,24 @@ var containerW = 1000
 var monthNames = ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"]
 
 
-selectedWood = "Pouteria pachycarpa"
+var selectedWood = "Pouteria pachycarpa"
 var selectedCity = "Curitiba"
 var selectedVariation = "varTangencial"
 var chart1Amplitude = [5,-5]
 
 var layoutData = [
-	{section: "chartVar",
+	{section: "chart1",
 	child: [
+		{class: "v-row", padding: [0,0,0,0], 
+		rect: [0,0,containerW,25],
+		child:[
+			{class: "v-cell", flex:1, padding: [0,0,0,0]},
+			{class: "v-cell", flex:.8, padding: [0,5,0,0]},
+			{class: "v-cell", flex:3.2, padding: [20,30,80,5],
+			funCall: chart1.title},
+			{class: "v-cell", flex:1, padding: [30,0,0,0],
+			funCall: chart1.titleDescription}
+		]},
 		{class: "v-row", padding: [0,0,0,0], 
 		rect: [0,0,containerW,25],
 		child:[
@@ -90,19 +100,3 @@ function layout (layoutData) {
 		} //END if child
 	} //END parser function
 } //END layout function
-
-d3.json("wood.json", function LoadJSON (json) {
-	data = json
-	data.cities.forEach(function (d,i) {
-		dataTransform.filterCity(d.name)
-		dataTransform.calculateVar(d, selectedWood)
-		dataTransform.calculateMonthArea(d)
-	})
-	data.cities.sort(function (a,b) {
-		return b.area - a.area
-	})
-	data.wood.sort(function (a,b) {
-		return +b[selectedVariation] - a[selectedVariation]
-	})
-	layout(layoutData)
-})
