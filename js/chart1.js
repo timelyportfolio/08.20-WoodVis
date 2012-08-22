@@ -20,12 +20,18 @@ chart1.titleDescription = function (rawSelection) {
 		height: "auto"
 	})
 	sel.append("p")
-		.html("A <strong>month collumn</strong> shows the size variation during the month and on the rest of the year from the month")
+		.html("<strong>How to read</strong>:<br>Each collumn shows the size variation in that month <strong >(black)</strong>, and how much it can grow or shrink during the rest of the year from that month <strong>(gray)</strong>")
 		.style({
 			padding: "0 0px 0 0px",
 			"margin": "0px",
 			"font-size": "12px",
-			"font-style": "italic"
+			"font-style": "italic",
+			color: "red"
+		})
+	sel.select("p").transition()
+		.delay(5000).duration(5000)
+		.style({
+			color: "black"
 		})
 }
 chart1.cityNameLabel = function (rawSelection) {

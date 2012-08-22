@@ -52,6 +52,37 @@ var layoutData = [
 			{class: "v-cell", flex:1, padding: [20,0,0,0],
 			funCall: chart1.condensedView}
 		]}
+	]},
+
+	{section: "chart2",
+	child: [
+		{class: "v-row", padding: [0,0,0,0], 
+		rect: [0,0,containerW,25],
+		child:[
+			{class: "v-cell", flex:1, padding: [0,0,0,0],
+			funCall: "chart1.cityNameLabel"},
+			{class: "v-cell", flex:.8, padding: [0,5,0,0]},
+			{class: "v-cell", flex:3.2, padding: [0,30,0,5],
+			funCall: "chart1.selectWoodVarTypeView"},
+			{class: "v-cell", flex:1, padding: [0,0,0,0],
+			funCall: "chart1.woodNameLabel"}
+		]},
+		{class: "v-row", padding: [0,0,0,0], 
+		rect: [0,0,containerW,400],
+		child:[
+			{class: "v-cell", flex:1, padding: [0,0,0,0],
+			funCall: chart2.cityView},
+			{class: "v-cell", flex:.8, padding: [0,0,0,0],
+			funCall: chart2.labelMainView},
+			{class: "v-cell", flex:4.2, padding: [0,0,0,0],
+			funCall: chart2.mainView}
+		]},
+		{class: "v-row", padding: [0,0,0,0], 
+		rect: [0,0,containerW,150],
+		child:[
+			{class: "v-cell", flex:1, padding: [20,0,0,0],
+			funCall: "chart1.condensedView"}
+		]}
 	]}
 ]
 
