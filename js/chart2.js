@@ -1,129 +1,19 @@
 var chart2 = {}
-chart2.mainView = function (rawSelection) {
 
-	if (rawSelection) {chart2.mainView.rawSelection = rawSelection}
-		else {rawSelection = chart2.mainView.rawSelection};
-
-	var city = dataTransform.filterCity(selectedCity)
-
+chart2.title = function (rawSelection) {
 	var sel = d3.select(rawSelection)
-	var w = parseFloat(sel.style("width"))
-	var h = parseFloat(sel.style("height"))
-	var tempYS = d3.scale.linear().domain([40,-10]).range([0,h])
-	var humYS = d3.scale.linear().domain([100,0]).range([0,h])
-	var emcYS = d3.scale.linear().domain([30,0]).range([0,h])
-	var xS = d3.scale.ordinal()
-		.rangeRoundBands([0,w], 0.0, 0)
-		.domain(monthNames)
-	sel = sel.append("svg")
-		.attr("width", w)
-		.attr("height", h)
-
-	//Define months groups
-	var months = sel
-		.selectAll("g").data(city.months)
-	  .enter().append("g")
-		.attr("transform", function (d,i) {
-			return "translate("+ xS(d.month) +",0)"
-		})
-
-	//Temp Block
-	months.append("rect")
-		.classed("v-e-tempBlock", true)
-		.attr({
-			"x": xS.rangeBand()/3*0,
-			"y": function (d) {return tempYS(d.t[0])},
-			"fill": "red",
-			"shape-rendering": "crispEdges",
-			"width": xS.rangeBand()/3,
-			"height": function (d,i) {return tempYS(d.t[1]) - tempYS(d.t[0])},
-			opacity: 1
-		})
-	//Hum Block
-	months.append("rect")
-		.classed("v-e-humBlock", true)
-		.attr({
-			"x": xS.rangeBand()/3*1,
-			"y": function (d) {return humYS(d.h[0])},
-			"fill": "blue",
-			"shape-rendering": "crispEdges",
-			"width": xS.rangeBand()/3,
-			"height": function (d,i) {return humYS(d.h[1]) - humYS(d.h[0])},
-			opacity: 1
-		})
-	//EMC Block
-	months.append("rect")
-		.classed("v-e-emcBlock", true)
-		.attr({
-			"x": xS.rangeBand()/3*2,
-			"y": function (d) {return emcYS(d.emc[0])},
-			"fill": "gold",
-			"shape-rendering": "crispEdges",
-			"width": xS.rangeBand()/3,
-			"height": function (d,i) {return emcYS(d.emc[1]) - emcYS(d.emc[0])},
-			opacity: 1,
-			// stroke: "black"
-		})
-
-	//Month label
-	months.append("text")
-		.attr({
-			x: xS.rangeBand()/2,
-			y: h-6,
-			"text-anchor": "middle",
-			"pointer-events": "none"
-		})
-		.text(function (d) {return d.month})
-}
-
-chart2.labelMainView = function (rawSelection) {
-
-	if (rawSelection) {chart2.labelMainView.rawSelection = rawSelection}
-		else {rawSelection = chart2.labelMainView.rawSelection};
-
-	var sel = d3.select(rawSelection)
-	var w = parseFloat(sel.style("width"))
-	var h = parseFloat(sel.style("height"))
-
-	var tempYS = d3.scale.linear().domain([40,-10]).range([10,h-12])
-	var humYS = d3.scale.linear().domain([100,0]).range([10,h-12])
-	var emcYS = d3.scale.linear().domain([30,0]).range([10,h-12])
-
-	var xS = d3.scale.ordinal()
-		.rangeRoundBands([10,w-10], 0, 0)
-		.domain(d3.range(3))
-
-	sel = sel.append("svg")
-		.attr("width", w)
-		.attr("height", h)
-
-	var aData = [
-		{axis: d3.svg.axis().orient("left").scale(tempYS), color: "red"},
-		{axis: d3.svg.axis().orient("left").scale(humYS), color: "blue"},
-		{axis: d3.svg.axis().orient("left").scale(emcYS), color: "gold"}
-	]
-
-	sel.selectAll("g").data(aData)
-		.enter().append("g")
-		.attr("transform", function (d,i) {
-			return "translate("+ (xS(i)+xS.rangeBand()) +",0)"
-		})
-		.each(function (d,i){
-			d3.select(this).call(d.axis)
-		})
-		.attr({
-			fill: function (d){return d.color},
-			"font-size": 12,
+	sel.style({
+		height: "auto"
+	})
+	sel.append("p")
+		.html("<span style=\"color:red\">Temperature</span>, <span style=\"color:blue\">Humidity</span> and <span style=\"color:gray\">Equilibrium Moisture Content (EMC)</span>")
+		.style({
+			"text-align": "left",
+			padding: "0 0 20px",
+			"margin": "0px",
+			"font-size": "40px",
 			"font-weight": "bold"
 		})
-		.selectAll("line")
-		.attr("stroke", "gray")
-	sel.selectAll("path")
-		.attr({
-			"fill": "none",
-			stroke: "none"
-		})
-
 }
 
 chart2.cityView = function (rawSelection) {
@@ -168,6 +58,8 @@ chart2.cityView = function (rawSelection) {
 					red = false
 				}
 			})
+			chart2.labelMainView.cityHover(d.name)
+			chart2.mainView.cityHover(d.name)
 			// chart1.varView.removeLabel()
 			// chart1.labelVarView.d = undefined
 			// chart1.labelVarView(false, false, d.name, false, red)
@@ -186,6 +78,8 @@ chart2.cityView = function (rawSelection) {
 						.style("color", "white")
 				}
 			})
+			chart2.labelMainView.removeCityHover()
+			chart2.mainView.cityRemoveHover()
 			// chart1.varView.removeRed()
 			// chart1.condensedView.unsetRed()
 			// chart1.labelVarView.d = undefined
@@ -193,6 +87,8 @@ chart2.cityView = function (rawSelection) {
 		})
 		.on("click", function (d,i){
 			selectedCity = d.name
+			chart2.labelMainView.removeCityHover()
+			chart2.mainView.cityRemoveHover() 
 			// chart1.varView.removeLabel()
 			// chart1.varView.update()
 
@@ -216,11 +112,121 @@ chart2.cityView = function (rawSelection) {
 			padding: "3px 4px",
 			"pointer-events": "none"
 		})
-		.html(function (d,i) {
-			return d3.format("02d")(i+1)+". \t"+d.name
+		.text(function (d,i) {
+			return d.name
+			//return d3.format("02d")(i+1)+". \t"+d.name
 		})
 }
 
+chart2.labelTitle = function (rawSelection) {
+
+	var sel = d3.select(rawSelection)
+	sel.text("Higher and lower months")
+		.classed("v-topRowNameLabel", true)
+
+}
+
+chart2.selectFocusOn = function (rawSelection) {
+	var sel = d3.select(rawSelection)
+	sel.append("div")
+		.text("Focus on")
+		.style({
+			"float": "left",
+			"margin-right": "10px",
+			"pointer-events": "none"
+		})
+		.classed("v-topRowNameLabel", true)
+	var woodTypeData = [
+		{name: "Temperature", type: "temp", color: "red"},
+		{name: "Humidity", type: "hum", color: "blue"},
+		{name: "EMC", type: "emc", color: "gray"}
+	]
+	var buttons = sel.selectAll(".v-woodButton").data(woodTypeData)
+		.enter().append("div")
+		.classed("v-woodButton", true)
+		.style({
+			cursor: "pointer"
+		})
+	buttons.append("p").text(function (d){return d.name})
+		.style({
+			margin: "0px",
+			padding: "0",
+			"pointer-events": "none"
+		})
+
+	buttons
+		.on("mouseover", function (d){
+			var red = false
+			var sel = d3.select(this)
+			if (d.type != focusOn) {
+				sel.style({
+					background: function (d) {return d.color},
+					color: "white"
+				})
+				red = true
+			};
+			chart2.mainView.focusHover(d.type)
+			// chart1.condensedView.update(selectedWood, d.type)
+			// chart1.varView.removeLabel()
+			// chart1.labelVarView.d = undefined
+			// chart1.labelVarView(false, false, false, d.type, red)
+			// chart1.varView.addRed(undefined, undefined, d.type)
+			// if (d.type == selectedVariation) {chart1.varView.removeRed()};
+		})
+		.on("mouseout", function (d){
+			var sel = d3.select(this)
+			if (d.type == focusOn) {
+				sel.style({
+					background: function (d) {return d.color},
+					color: "white"
+				})
+			} else {
+				sel.style({
+					background: "white",
+					color: "black"
+				})
+			}
+			chart2.mainView.focusOut()
+			// chart1.condensedView.update()
+			// chart1.varView.removeRed()
+			// chart1.labelVarView.d = undefined
+			// chart1.labelVarView()
+		})
+		.each(function (d,i){
+			if (d.type == focusOn) {
+				var sel = d3.select(this)
+					.style({
+						background: function (d) {return d.color},
+						color: "white"
+					})
+					.classed("v-e-selected", true)
+			};
+		})
+		.on("click", function (d) {
+			focusOn = d.type
+			chart2.mainView.cityRemoveHover() 
+			// chart1.labelVarView.clickTransition()
+			// chart1.varView.update()
+			// chart1.condensedView.update()
+			buttons
+				.classed("v-e-selected", false)
+				.style({
+					background: "white",
+					color: "black"
+				})
+			d3.select(this).classed("v-e-selected", true)
+				.style({
+					background: function (d) {return d.color},
+					color: "white"
+				})
+			// data.wood.sort(function (a,b) {
+			// 	return +b[selectedVariation] - a[selectedVariation]
+			// })
+			// d3.select(chart1.woodView.rawSelection)
+			// 	.select("div").remove()
+			// chart1.woodView()
+		})
+}
 
 
 

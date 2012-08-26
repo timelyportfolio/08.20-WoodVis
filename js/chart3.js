@@ -1,11 +1,12 @@
-var chart1 = {}
-chart1.title = function (rawSelection) {
+chart3 = {}
+
+chart3.title = function (rawSelection) {
 	var sel = d3.select(rawSelection)
 	sel.style({
 		height: "auto"
 	})
 	sel.append("p")
-		.html("Wood <span style=\"color:red\">Relative</span> Size Variation")
+		.html("Wood <span style=\"color:green\">Absolute</span> Size Variation")
 		.style({
 			"text-align": "left",
 			padding: "0 0 20px",
@@ -14,32 +15,13 @@ chart1.title = function (rawSelection) {
 			"font-weight": "bold"
 		})
 }
-chart1.titleDescription = function (rawSelection) {
-	var sel = d3.select(rawSelection)
-	sel.style({
-		height: "auto"
-	})
-	sel.append("p")
-		.html("<strong>How to read</strong>:<br>Each collumn shows the size variation in that month <strong >(black)</strong>, and how much it can grow or shrink during the rest of the year from that month <strong>(gray)</strong>")
-		.style({
-			padding: "0 0px 0 0px",
-			"margin": "0px",
-			"font-size": "12px",
-			"font-style": "italic",
-			color: "red"
-		})
-	sel.select("p").transition()
-		.delay(5000).duration(5000)
-		.style({
-			color: "black"
-		})
-}
-chart1.cityNameLabel = function (rawSelection) {
+
+chart3.cityNameLabel = function (rawSelection) {
 	var sel = d3.select(rawSelection)
 	sel.text("Cities")
 		.classed("v-topRowNameLabel", true)
 }
-chart1.selectWoodVarTypeView = function (rawSelection) {
+chart3.selectWoodVarTypeView = function (rawSelection) {
 	var sel = d3.select(rawSelection)
 	sel.append("div")
 		.text("Variation Type")
@@ -69,21 +51,21 @@ chart1.selectWoodVarTypeView = function (rawSelection) {
 
 	buttons
 		.on("mouseover", function (d){
-			var red = false
 			var sel = d3.select(this)
 			if (d.type != selectedVariation) {
 				sel.style({
-					background: "red",
+					background: "green",
 					color: "white"
 				})
-				red = true
 			};
-			chart1.condensedView.update(selectedWood, d.type)
-			chart1.varView.removeLabel()
-			chart1.labelVarView.d = undefined
-			chart1.labelVarView(false, false, false, d.type, red)
-			chart1.varView.addRed(undefined, undefined, d.type)
-			if (d.type == selectedVariation) {chart1.varView.removeRed()};
+			chart3.mainView.hoverInfoOn(false, false, d.type)
+			chart3.labelMainView.hoverOn(false, false, d.type)
+			// chart1.condensedView.update(selectedWood, d.type)
+			// chart1.varView.removeLabel()
+			// chart1.labelVarView.d = undefined
+			// chart1.labelVarView(false, false, false, d.type, red)
+			// chart1.varView.addRed(undefined, undefined, d.type)
+			// if (d.type == selectedVariation) {chart1.varView.removeRed()};
 		})
 		.on("mouseout", function (d){
 			var sel = d3.select(this)
@@ -98,10 +80,12 @@ chart1.selectWoodVarTypeView = function (rawSelection) {
 					color: "black"
 				})
 			}
-			chart1.condensedView.update()
-			chart1.varView.removeRed()
-			chart1.labelVarView.d = undefined
-			chart1.labelVarView()
+			chart3.mainView.hoverInfoOff()
+			chart3.labelMainView.hoverOff() 
+			// chart1.condensedView.update()
+			// chart1.varView.removeRed()
+			// chart1.labelVarView.d = undefined
+			// chart1.labelVarView()
 		})
 		.each(function (d,i){
 			if (d.type == selectedVariation) {
@@ -115,9 +99,11 @@ chart1.selectWoodVarTypeView = function (rawSelection) {
 		})
 		.on("click", function (d) {
 			selectedVariation = d.type
-			chart1.labelVarView.clickTransition()
-			chart1.varView.update()
-			chart1.condensedView.update()
+			chart3.mainView.hoverInfoOff()
+			chart3.labelMainView.hoverOff() 
+			// chart1.labelVarView.clickTransition()
+			// chart1.varView.update()
+			// chart1.condensedView.update()
 			buttons
 				.classed("v-e-selected", false)
 				.style({
@@ -132,19 +118,19 @@ chart1.selectWoodVarTypeView = function (rawSelection) {
 			data.wood.sort(function (a,b) {
 				return +b[selectedVariation] - a[selectedVariation]
 			})
-			d3.select(chart1.woodView.rawSelection)
+			d3.select(chart3.woodView.rawSelection)
 				.select("div").remove()
-			chart1.woodView()
+			chart3.woodView()
 		})
 }
-chart1.woodNameLabel = function (rawSelection) {
+chart3.woodNameLabel = function (rawSelection) {
 	var sel = d3.select(rawSelection)
 	sel.text("Wood Species")
 		.classed("v-topRowNameLabel", true)
 }
-chart1.woodView = function (rawSelection) {
-	if (rawSelection) {chart1.woodView.rawSelection = rawSelection}
-		else {rawSelection = chart1.woodView.rawSelection};
+chart3.woodView = function (rawSelection) {
+	if (rawSelection) {chart3.woodView.rawSelection = rawSelection}
+		else {rawSelection = chart3.woodView.rawSelection};
 
 	var sel = d3.select(rawSelection)
 
@@ -156,7 +142,7 @@ chart1.woodView = function (rawSelection) {
 			// overflow: "auto"
 		})
 		.on("mouseout", function () {
-			chart1.condensedView.update(selectedWood)
+			// chart1.condensedView.update(selectedWood)
 		})
 
 		.selectAll("div").data(data.wood)
@@ -173,29 +159,29 @@ chart1.woodView = function (rawSelection) {
 			}
 		})
 		.on("mouseover", function (d,i) {
-			var red = true
 			var sel = d3.select(this)
-			sel.style("background", "red")
+			sel.style("background", "green")
 			sel.select("p").style("color", "white")
 				.style("font-style", "italic")
 				.text(function (d) {
 					return d.nomeCientifico
 				})
-			chart1.varView.addRed(d, false)
+			// chart1.varView.addRed(d, false)
 			sel.each(function (d,i){
 				var sel = d3.select(this)
 				if (d.nomeCientifico == selectedWood) {
 					sel.style("background", "black")
-					chart1.varView.removeRed()
-					red = false
+					// chart1.varView.removeRed()
 				}
 				
 			})
-			chart1.varView.removeLabel()
-			chart1.labelVarView.d = undefined
-			chart1.labelVarView(false, d.nomeCientifico, false, false, red)
+			chart3.mainView.hoverInfoOn(false, d.nomeCientifico, false)
+			chart3.labelMainView.hoverOn(false, d.nomeCientifico, false)
+			// chart1.varView.removeLabel()
+			// chart1.labelVarView.d = undefined
+			// chart1.labelVarView(false, d.nomeCientifico, false, false, red)
 
-			chart1.condensedView.update(d.nomeCientifico)
+			// chart1.condensedView.update(d.nomeCientifico)
 		})
 		.on("mouseout", function (d,i) {
 			var sel = d3.select(this)
@@ -212,16 +198,20 @@ chart1.woodView = function (rawSelection) {
 						.select("p").style("color", "white")
 				}
 			})
-			chart1.varView.removeRed()
-			chart1.labelVarView.d = undefined
-			chart1.labelVarView()
+			chart3.mainView.hoverInfoOff()
+			chart3.labelMainView.hoverOff() 
+			// chart1.varView.removeRed()
+			// chart1.labelVarView.d = undefined
+			// chart1.labelVarView()
 		})
 		.on("click", function (d,i){
 			selectedWood = d.nomeCientifico
-			chart1.varView.removeLabel()
-			chart1.varView.update()
+			chart3.mainView.hoverInfoOff()
+			chart3.labelMainView.hoverOff() 
+			// chart1.varView.removeLabel()
+			// chart1.varView.update()
 
-			chart1.labelVarView.clickTransition()
+			// chart1.labelVarView.clickTransition()
 
 			d3.select(".v-e-wSelected")
 				.classed("v-e-wSelected", false)

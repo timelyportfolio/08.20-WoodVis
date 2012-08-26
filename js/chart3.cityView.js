@@ -1,6 +1,6 @@
-chart1.cityView = function (rawSelection) {
-	if (rawSelection) {chart1.cityView.rawSelection = rawSelection}
-		else {rawSelection = chart1.cityView.rawSelection};
+chart3.cityView = function (rawSelection) {
+	if (rawSelection) {chart3.cityView.rawSelection = rawSelection}
+		else {rawSelection = chart3.cityView.rawSelection};
 
 	var sel = d3.select(rawSelection)
 
@@ -28,23 +28,25 @@ chart1.cityView = function (rawSelection) {
 		.on("mouseover", function (d,i) {
 			var red = true
 			var sel = d3.select(this)
-			sel.style("background", "red")
+			sel.style("background", "green")
 				.style("color", "white")
 			
-			chart1.varView.addRed(false, d)
+			// chart1.varView.addRed(false, d)
 			sel.each(function (d,i){
 				var sel = d3.select(this)
 				if (d.name == selectedCity) {
 					sel.style("background", "black")
-					chart1.varView.removeRed()
+					// chart1.varView.removeRed()
 					red = false
 				}
 			})
-			chart1.varView.removeLabel()
-			chart1.labelVarView.d = undefined
-			chart1.labelVarView(false, false, d.name, false, red)
+			chart3.mainView.hoverInfoOn(d.name, false, false)
+			chart3.labelMainView.hoverOn(d.name, false, false)
+			// chart1.varView.removeLabel()
+			// chart1.labelVarView.d = undefined
+			// chart1.labelVarView(false, false, d.name, false, red)
 
-			chart1.condensedView.setRed(d.name)
+			// chart1.condensedView.setRed(d.name)
 		})
 		.on("mouseout", function (d,i) {
 			var sel = d3.select(this)
@@ -58,17 +60,21 @@ chart1.cityView = function (rawSelection) {
 						.style("color", "white")
 				}
 			})
-			chart1.varView.removeRed()
-			chart1.condensedView.unsetRed()
-			chart1.labelVarView.d = undefined
-			chart1.labelVarView()
+			chart3.mainView.hoverInfoOff()
+			chart3.labelMainView.hoverOff() 
+			// chart1.varView.removeRed()
+			// chart1.condensedView.unsetRed()
+			// chart1.labelVarView.d = undefined
+			// chart1.labelVarView()
 		})
 		.on("click", function (d,i){
 			selectedCity = d.name
-			chart1.varView.removeLabel()
-			chart1.varView.update()
+			chart3.mainView.hoverInfoOff()
+			chart3.labelMainView.hoverOff() 
+			// chart1.varView.removeLabel()
+			// chart1.varView.update()
 
-			chart1.labelVarView.clickTransition()
+			// chart1.labelVarView.clickTransition()
 
 			d3.select(".v-e-cSelected")
 				.classed("v-e-cSelected", false)
@@ -79,7 +85,7 @@ chart1.cityView = function (rawSelection) {
 				.style("background", "black")
 				.style("color", "white")
 
-			chart1.condensedView.setBlack()
+			// chart1.condensedView.setBlack()
 		})
 
 	cities.append("p")
@@ -93,22 +99,22 @@ chart1.cityView = function (rawSelection) {
 			//return d3.format("02d")(i+1)+". \t"+d.name
 		})
 }
-chart1.cityView.setRed = function (cityName) {
-	var sel = d3.select(chart1.cityView.rawSelection)
+chart3.cityView.setRed = function (cityName) {
+	var sel = d3.select(chart3.cityView.rawSelection)
 	var groups = sel.selectAll("div")
 	groups.each(function (d,i) {
 		var sel = d3.select(this)
 		if (d.name == cityName && d.name != selectedCity) {
 			sel.classed("v-e-red", true)
 				.style({
-					background: "red",
+					background: "green",
 					color: "white"
 				})
 		};
 	})
 }
-chart1.cityView.unsetRed = function () {
-	var sel = d3.select(chart1.cityView.rawSelection)
+chart3.cityView.unsetRed = function () {
+	var sel = d3.select(chart3.cityView.rawSelection)
 	var red = sel.selectAll(".v-e-red")
 		.classed("v-e-red", false)
 		.style({
@@ -120,8 +126,8 @@ chart1.cityView.unsetRed = function () {
 			.style("color", "white")
 	} else {red.style("fill", "white")};	
 }
-chart1.cityView.setBlack = function () {
-	var sel = d3.select(chart1.cityView.rawSelection)
+chart3.cityView.setBlack = function () {
+	var sel = d3.select(chart3.cityView.rawSelection)
 		.select("div")
 	d3.select(".v-e-cSelected")
 		.classed("v-e-cSelected", false)

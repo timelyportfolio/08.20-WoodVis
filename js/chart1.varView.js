@@ -27,6 +27,7 @@ chart1.varView = function (rawSelection) {
 		.attr("transform", function (d,i) {
 			return "translate("+ xS(d.month) +",0)"
 		})
+	
 
 	//Year block
 	months.append("rect")

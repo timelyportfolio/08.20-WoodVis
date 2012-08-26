@@ -17,6 +17,10 @@ dataTransform.filterCity = function (stringName) {
     if (!filter.hasOwnProperty("months")) {
         filter.tLimits = [d3.max(filter.th),d3.min(filter.tl)]
         filter.hLimits = [d3.max(filter.hh),d3.min(filter.hl)]
+        filter.t1Label = [d3.max(filter.th),d3.max(filter.tl)]
+        filter.t2Label = [d3.min(filter.th),d3.min(filter.tl)]
+        filter.h1Label = [d3.max(filter.hh),d3.max(filter.hl)]
+        filter.h2Label = [d3.min(filter.hh),d3.min(filter.hl)]
         filter.months = filter.th.map(function (e,i) {
             return {
                 t:[filter.th[i],filter.tl[i]],
@@ -26,6 +30,14 @@ dataTransform.filterCity = function (stringName) {
         })
         filter.emcLimits = [
             d3.max(filter.months, function(d){return d.emc[0]}), 
+            d3.min(filter.months, function(d){return d.emc[1]})
+        ]
+        filter.emc1Label = [
+            d3.max(filter.months, function(d){return d.emc[0]}), 
+            d3.max(filter.months, function(d){return d.emc[1]})
+        ]
+        filter.emc2Label = [
+            d3.min(filter.months, function(d){return d.emc[0]}), 
             d3.min(filter.months, function(d){return d.emc[1]})
         ]
     }
@@ -39,19 +51,32 @@ dataTransform.calculateVar = function (city, woodString, variationString) {
     var woodV = wood[variationString]
 
     city.months.forEach(function (d,i) {
-        var aMean = ((woodV/30 * d.emc[1]) + (woodV/30 * d.emc[0]))/2
+        var aMean = (woodV*(0 + d.emc[1]/30) + woodV*(0 + d.emc[0]/30))/2
+        // aMean = 0
         d.aMean = aMean
         d.vm = [
-            (woodV/30 * d.emc[0]) - aMean, 
-            (woodV/30 * d.emc[1]) - aMean
+            woodV*(0 + d.emc[0]/30) - aMean, 
+            woodV*(0 + d.emc[1]/30) - aMean
         ]
         d.vy = [
-            (woodV/30 * city.emcLimits[0]) - aMean, 
-            (woodV/30 * city.emcLimits[1]) - aMean
+            woodV*(0 + city.emcLimits[0]/30) - aMean, 
+            woodV*(0 + city.emcLimits[1]/30) - aMean
         ]
-        d.month = monthNames[i]
+        d.month = monthNames[i],
+        d.abs = [
+            100 - woodV*(1 - d.emc[0]/30), 
+            100 - woodV*(1 - d.emc[1]/30)
+        ]
         
     })
+    city.absLabel1 = [
+        100 - woodV*(1 - city.emc1Label[0]/30),
+        100 - woodV*(1 - city.emc1Label[1]/30)
+    ]
+    city.absLabel2 = [
+        100 - woodV*(1 - city.emc2Label[0]/30),
+        100 - woodV*(1 - city.emc2Label[1]/30)
+    ]
     
 }
 dataTransform.calculateMonthArea = function (city) {

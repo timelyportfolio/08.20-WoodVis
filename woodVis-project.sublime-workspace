@@ -1,0 +1,1010 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"str",
+				"stroke"
+			],
+			[
+				"range",
+				"rangeBand"
+			],
+			[
+				"if",
+				"ife	if … else"
+			],
+			[
+				"font",
+				"font-weight"
+			],
+			[
+				"rang",
+				"rangeBand"
+			],
+			[
+				"city",
+				"cityHover"
+			],
+			[
+				"trans",
+				"transition"
+			],
+			[
+				"sele",
+				"select	.select"
+			],
+			[
+				"txtLimit",
+				"txtLimit1"
+			],
+			[
+				"ldis",
+				"lDist"
+			],
+			[
+				"emc",
+				"emcYS"
+			],
+			[
+				"i",
+				"if	if"
+			],
+			[
+				"selec",
+				"selectAll	.selectAll"
+			],
+			[
+				"v-emon",
+				"v-e-monthRed"
+			],
+			[
+				"black",
+				"black"
+			],
+			[
+				"wood",
+				"woodString"
+			],
+			[
+				"year",
+				"yearLabel"
+			],
+			[
+				"fun",
+				"function"
+			],
+			[
+				"func",
+				"function"
+			],
+			[
+				"fil",
+				"filter"
+			],
+			[
+				"var",
+				"varRadial"
+			],
+			[
+				"type",
+				"type"
+			],
+			[
+				"selectwoo",
+				"selectedWood"
+			],
+			[
+				"mouse",
+				"mouseout"
+			],
+			[
+				"selected",
+				"selectedVariation"
+			],
+			[
+				"pa",
+				"padding-top"
+			],
+			[
+				"mou",
+				"mouseout"
+			],
+			[
+				"selecte",
+				"selectedCity"
+			],
+			[
+				"cl",
+				"classed	.classed"
+			],
+			[
+				"ac",
+				"Araucaria"
+			],
+			[
+				"ran",
+				"rangeBand"
+			],
+			[
+				"for",
+				"forEach"
+			],
+			[
+				"filt",
+				"filterCity"
+			],
+			[
+				"seleci",
+				"selectedCity"
+			],
+			[
+				"tran",
+				"transition"
+			],
+			[
+				"vy",
+				"vy"
+			],
+			[
+				"nome",
+				"nomeCientifico"
+			],
+			[
+				"fu",
+				"function"
+			],
+			[
+				"s",
+				"selectAll	.selectAll"
+			],
+			[
+				"class",
+				"classed	.classed"
+			],
+			[
+				"flex",
+				"flexTotal"
+			],
+			[
+				"fle",
+				"flexTotal"
+			],
+			[
+				"lay",
+				"layoutData"
+			],
+			[
+				"layo",
+				"layoutData"
+			],
+			[
+				"bor",
+				"border-bottom-style"
+			],
+			[
+				"sel",
+				"select	.select"
+			],
+			[
+				"char",
+				"chartC"
+			],
+			[
+				"cell",
+				"cellData"
+			],
+			[
+				"cha",
+				"chartC"
+			],
+			[
+				"border-s",
+				"border-style	zen:css_properties"
+			],
+			[
+				"di",
+				"DIV	Tag"
+			],
+			[
+				"fon",
+				"font-style"
+			],
+			[
+				"select",
+				"selectAll	.selectAll"
+			],
+			[
+				"se",
+				"select	.select"
+			],
+			[
+				"mon",
+				"months"
+			],
+			[
+				"li",
+				"lightgray"
+			],
+			[
+				"mi",
+				"middle"
+			],
+			[
+				"te",
+				"text-anchor"
+			],
+			[
+				"mont",
+				"months"
+			],
+			[
+				"label",
+				"labelVarView"
+			],
+			[
+				"month",
+				"monthNames"
+			],
+			[
+				"fi",
+				"filterCity"
+			],
+			[
+				"varView",
+				"varViewC"
+			],
+			[
+				"stro",
+				"stroke-width"
+			],
+			[
+				"html",
+				"html	.html"
+			],
+			[
+				"temp",
+				"tempLine"
+			],
+			[
+				"hH",
+				"hH"
+			],
+			[
+				"in",
+				"interpolate"
+			],
+			[
+				"margin",
+				"marginView"
+			],
+			[
+				"view",
+				"view2"
+			],
+			[
+				"argu",
+				"argument"
+			],
+			[
+				"re",
+				"__rect__  (namespace)"
+			],
+			[
+				"cla",
+				"classed	.classed"
+			],
+			[
+				"g",
+				"g"
+			],
+			[
+				"su",
+				"subViews"
+			],
+			[
+				"_",
+				"__view__  (variable)"
+			],
+			[
+				"__",
+				"__view__  (variable)"
+			],
+			[
+				"___",
+				"__view__  (class)"
+			],
+			[
+				"h",
+				"h  (function)"
+			],
+			[
+				"y",
+				"y  (function)"
+			],
+			[
+				"x",
+				"x  (function)"
+			],
+			[
+				"attr",
+				".attr	attr"
+			],
+			[
+				"get",
+				"getset	js_getset"
+			],
+			[
+				"c",
+				"c_page"
+			],
+			[
+				"ma",
+				"maxY"
+			],
+			[
+				"mid",
+				"midY"
+			],
+			[
+				"ge",
+				"getset	js_getset"
+			],
+			[
+				"min",
+				"minY"
+			],
+			[
+				"htm",
+				"html5"
+			],
+			[
+				"cTe",
+				"cTeste"
+			],
+			[
+				"a",
+				"aString"
+			],
+			[
+				"mean",
+				"meanLine"
+			],
+			[
+				"fa",
+				"fakeDataMean"
+			],
+			[
+				"js",
+				"json"
+			],
+			[
+				"tick",
+				"ticks"
+			],
+			[
+				"ti",
+				"ticks"
+			],
+			[
+				"opa",
+				"fill-opacity"
+			],
+			[
+				"group",
+				"groupTicks"
+			],
+			[
+				"d",
+				"d3"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 137.0,
+		"selected_items":
+		[
+			[
+				"synjs",
+				"Set Syntax: JavaScript"
+			],
+			[
+				"packdisc",
+				"Package Control: Discover Packages"
+			],
+			[
+				"packinst",
+				"Package Control: Install Package"
+			],
+			[
+				"packins",
+				"Package Control: Install Package"
+			],
+			[
+				"pack",
+				"Package Control: Install Package"
+			],
+			[
+				"SYNTCSS",
+				"Set Syntax: CSS"
+			],
+			[
+				"syntajs",
+				"Set Syntax: JavaScript"
+			],
+			[
+				"syncss",
+				"Set Syntax: CSS"
+			],
+			[
+				"syntjs",
+				"Set Syntax: JavaScript"
+			],
+			[
+				"syntaxhtml",
+				"Set Syntax: HTML"
+			],
+			[
+				"syntaxjson",
+				"Set Syntax: JSON"
+			],
+			[
+				"zencoding",
+				"Zen Coding: Zen as you type"
+			],
+			[
+				"packdi",
+				"Package Control: Discover Packages"
+			],
+			[
+				"snipp",
+				"Snippet: htmlVis base"
+			],
+			[
+				"syn",
+				"Set Syntax: Markdown"
+			],
+			[
+				"packdis",
+				"Package Control: Discover Packages"
+			],
+			[
+				"synmr",
+				"Set Syntax: Markdown"
+			],
+			[
+				"syntmar",
+				"Set Syntax: Markdown"
+			],
+			[
+				"syntamark",
+				"Set Syntax: Markdown"
+			],
+			[
+				"packa",
+				"Package Control: Disable Package"
+			],
+			[
+				"packin",
+				"Package Control: Install Package"
+			],
+			[
+				"pa",
+				"Package Control: Enable Package"
+			],
+			[
+				"sni",
+				"Snippet: Lorem ipsum"
+			],
+			[
+				"scope",
+				"Scope Hunter: Toggle Instant Scoper"
+			],
+			[
+				"scop",
+				"Scope Hunter: Show Scope Under Cursor(s)"
+			],
+			[
+				"pac",
+				"Package Control: Install Package"
+			],
+			[
+				"packain",
+				"Package Control: Install Package"
+			],
+			[
+				"html",
+				"Set Syntax: HTML"
+			],
+			[
+				"remove",
+				"Package Control: Remove Package"
+			],
+			[
+				"snippethtml",
+				"Snippet: .html"
+			],
+			[
+				"syntjsc",
+				"Set Syntax: JavaScript"
+			],
+			[
+				"wrap",
+				"Word Wrap: Toggle"
+			],
+			[
+				"repla",
+				"Snippet: replaceWith"
+			],
+			[
+				"aaa",
+				"z:AAAPackageDev: New Completions File"
+			],
+			[
+				"code in",
+				"SublimeCodeIntel: Disable Plugin"
+			],
+			[
+				"syntjson",
+				"Set Syntax: JSON"
+			],
+			[
+				"syntjq",
+				"Set Syntax: jQuery (JavaScript)"
+			],
+			[
+				"pack is",
+				"Package Control: Install Package"
+			],
+			[
+				"pac lis",
+				"Package Control: List Packages"
+			],
+			[
+				"Package Control: ",
+				"Package Control: List Packages"
+			],
+			[
+				"syn: js",
+				"Set Syntax: JavaScript"
+			],
+			[
+				"Snippet: ",
+				"Snippet: html"
+			]
+		],
+		"width": 435.0
+	},
+	"console":
+	{
+		"height": 125.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/Users/Luis/Documents/Projetos/2012/08.20 WoodVis/js/chart3.mainView.js",
+		"/Users/Luis/Documents/Projetos/2012/08.20 WoodVis/index.html",
+		"/Users/Luis/Documents/Projetos/2012/08.20 WoodVis/js/chart3.js",
+		"/Users/Luis/Documents/Projetos/2012/08.20 WoodVis/js/chart3.labelMainView.js",
+		"/Users/Luis/Documents/Projetos/2012/08.20 WoodVis/js/chart2.labelMainView.js",
+		"/Users/Luis/Documents/Projetos/2012/08.20 WoodVis/js/chart1.varView.js",
+		"/Users/Luis/Documents/Projetos/2012/08.20 WoodVis/js/dataTransform.js",
+		"/Users/Luis/Documents/Projetos/2012/08.20 WoodVis/js/chart3.cityView.js",
+		"/Users/Luis/Documents/Projetos/2012/08.20 WoodVis/js/chart3.condensedView.js",
+		"/Users/Luis/Documents/Projetos/2012/08.20 WoodVis/js/chart1.condensedView.js",
+		"/Users/Luis/Documents/Projetos/2012/08.20 WoodVis/js/chart2.condensedView.js",
+		"/Users/Luis/Documents/Projetos/2012/08.20 WoodVis/js/chart2.mainView.js",
+		"/Users/Luis/Documents/Projetos/2012/08.20 WoodVis/js/chart2.js",
+		"/Users/Luis/Documents/Projetos/2012/08.20 WoodVis/js/chart1.js",
+		"/Users/Luis/Documents/Projetos/2012/08.20 WoodVis/js/chart1.cityView.js",
+		"/Users/Luis/Documents/Projetos/2012/08.20 WoodVis/wood.html",
+		"/Users/Luis/Library/Application Support/Sublime Text 2/Packages/User/Preferences.sublime-settings",
+		"/Users/Luis/Documents/Projetos/2012/04.09 VIS/wood/wood.json",
+		"/Users/Luis/Library/Application Support/Sublime Text 2/Packages/Default/Default (OSX).sublime-keymap",
+		"/Users/Luis/Documents/Projetos/2012/04.09 VIS/0sublime/wood/08.17_variationChart.html",
+		"/Users/Luis/Documents/Projetos/2012/04.09 VIS/0sublime/wood/wood.json",
+		"/Users/Luis/Documents/Projetos/2012/04.09 VIS/0sublime/wood/08.10_monthBlocks.html",
+		"/Users/Luis/Documents/Projetos/2012/04.09 VIS/0sublime/wood/08.06_monthBlocks.html",
+		"/Users/Luis/Documents/Projetos/2012/04.09 VIS/wood/08.15_variationChart.css",
+		"/Users/Luis/Documents/Projetos/2012/04.09 VIS/wood/08.15_variationChart.html",
+		"/Users/Luis/Documents/Projetos/2012/04.09 VIS/wood/css.css",
+		"/Users/Luis/Documents/Projetos/2012/04.09 VIS/wood/takeOff_wood.json",
+		"/Users/Luis/Desktop/wood/08.15_variationChart.html",
+		"/Users/Luis/Documents/Projetos/2012/04.09 VIS/wood/08.13_variationChart.html",
+		"/Users/Luis/Documents/Projetos/2012/04.09 VIS/weather/index.html",
+		"/Users/Luis/Documents/Projetos/2012/04.09 VIS/wood/weather.html",
+		"/Users/Luis/Documents/Projetos/2012/04.09 VIS/lc.js",
+		"/Users/Luis/Documents/Projetos/2012/04.09 VIS/wood/08.10_monthBlocks.html",
+		"/Users/Luis/Documents/Projetos/2012/04.09 VIS/wood/08.13_jsonData.html",
+		"/Users/Luis/Documents/Projetos/2012/04.09 VIS/d3.v2.js",
+		"/Users/Luis/Documents/Projetos/2012/04.09 VIS/wood/07.25_threePlots.html",
+		"/Users/Luis/Documents/Projetos/2012/04.09 VIS/wood/07.19_rainbow.html",
+		"/Users/Luis/Documents/Projetos/2012/04.09 VIS/wood/07.19_points.html",
+		"/Users/Luis/Documents/Projetos/2012/04.09 VIS/wood/wood.csv",
+		"/Users/Luis/Library/Application Support/Sublime Text 2/Packages/User/Default (OSX).sublime-keymap",
+		"/Users/Luis/Documents/Projetos/2012/04.09 VIS/wood/08.06_monthBlocks.html",
+		"/Users/Luis/Documents/Projetos/2012/04.09 VIS/wood/10.08_monthBlocks.html",
+		"/Users/Luis/Documents/Projetos/2012/04.09 VIS/wood/25.06_threePlots.html",
+		"/Users/Luis/Documents/Projetos/2012/04.09 VIS/wood/06.07_monthBlocks.html",
+		"/Users/Luis/Downloads/ctes.txt",
+		"/Users/Luis/Library/Application Support/Sublime Text 2/Packages/Default/Preferences.sublime-settings",
+		"/Users/Luis/Library/Application Support/Chocolat/CodeCompletion/Hits",
+		"/Users/Luis/Documents/Projetos/2012/07.26 IxDSA 2012/PAPER_IxDSA2012.txt",
+		"/Users/Luis/Documents/Projetos/2012/04.09 ACADIA Paper/PAPER_ACADIA2012.txt",
+		"/Users/Luis/Library/Application Support/Sublime Text 2/Packages/User/js-d3_constants.sublime-completions",
+		"/Users/Luis/Library/Application Support/Sublime Text 2/Packages/User/js-d3.sublime-completions",
+		"/Users/Luis/Documents/Projetos/2012/04.09 VIS/wood/19.06_points.html",
+		"/Users/Luis/Documents/Projetos/2012/04.09 VIS/lc_test/lc_test.html",
+		"/Users/Luis/Downloads/mbostock-d3-224acae/examples/axis/axis-transition.html",
+		"/Users/Luis/Downloads/mbostock-d3-224acae/examples/population/population.js",
+		"/Users/Luis/Downloads/mbostock-d3-224acae/examples/population/population.html",
+		"/Users/Luis/Downloads/mbostock-d3-224acae/examples/box/box.js",
+		"/Users/Luis/Downloads/mbostock-d3-224acae/examples/box/box.html",
+		"/Users/Luis/Downloads/mbostock-d3-224acae/examples/area/area-radial.html",
+		"/Users/Luis/Documents/Projetos/2012/04.09 VIS/lc_test/lc_test2.html",
+		"/Users/Luis/Documents/Projetos/2012/04.09 VIS/VIS.sublime-project",
+		"/Users/Luis/Library/Application Support/Sublime Text 2/Packages/HTML/HTML.sublime-completions",
+		"/Users/Luis/Library/Application Support/Sublime Text 2/Packages/jQuery/Syntaxes/jQueryJavaScript.tmLanguage",
+		"/Users/Luis/Library/Application Support/Sublime Text 2/Packages/HTML/html_completions.py",
+		"/Users/Luis/Documents/Projetos/2012/04.09 VIS/.codeintel/config",
+		"/Users/Luis/Documents/Projetos/2012/04.09 VIS/aa.js",
+		"/Users/Luis/Documents/Projetos/2012/04.09 VIS/aa.html",
+		"/Users/Luis/Documents/Projetos/2012/04.09 VIS/prototype/prototype.html",
+		"/Users/Luis/Downloads/Kronuz-SublimeCodeIntel-608cbed/README.rst",
+		"/Users/Luis/Library/Application Support/Sublime Text 2/Packages/User/js_class.sublime-snippet",
+		"/Users/Luis/Documents/Projetos/2012/04.09 VIS/VIS.esproj/lc.js",
+		"/Users/Luis/Library/Application Support/Sublime Text 2/Packages/User/js_getset.sublime-snippet",
+		"/Users/Luis/Library/Application Support/Sublime Text 2/Packages/User/htmlvis.sublime-snippet",
+		"/Users/Luis/Documents/Projetos/2012/04.09 VIS/teste.html",
+		"/Users/Luis/Library/Application Support/Sublime Text 2/Packages/CSS/css_completions.py",
+		"/Users/Luis/Library/Application Support/Sublime Text 2/Packages/User/HTML.sublime-settings",
+		"/Users/Luis/Library/Application Support/Sublime Text 2/Packages/User/html.sublime-build",
+		"/Users/Luis/Library/Application Support/Sublime Text 2/Packages/HTML/html_completions.pyc",
+		"/Users/Luis/Desktop/untitled.html",
+		"/Users/Luis/Documents/Projetos/2012/04.09 d3.js test/year02.html",
+		"/Users/Luis/Documents/Projetos/2012/04.09 d3.js test/London.json",
+		"/Users/Luis/Downloads/latex_conf_vgtc_080216/template.tex",
+		"/Users/Luis/Documents/Projetos/2012/04.09 d3.js test/untitled.html"
+	],
+	"find":
+	{
+		"height": 35.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"white",
+			"#f9f9f9",
+			"\"red\"",
+			"5.5",
+			"append",
+			"path",
+			".transition()",
+			"-2.5",
+			"green",
+			"console",
+			"consol",
+			"abd",
+			"end",
+			"-",
+			"absLabel1",
+			"black",
+			"d.scale(d.limits1[1])",
+			"d.scale(d.limits1[0])",
+			"xS.rangeBand()/2",
+			"d.scale",
+			"limits1",
+			"fSize",
+			"stroke",
+			"vm",
+			"varView",
+			"\"red\"",
+			"chart1",
+			"chart3",
+			"\"gree\"",
+			"\"red\"",
+			"chart1",
+			"\"red\"",
+			"chart2",
+			"chart1",
+			"focusOn2",
+			"focusOn",
+			".transition()",
+			"focusOn",
+			"chart2.mainView.focusOn",
+			"chart2.mainView.",
+			"c09d2e",
+			"#c09d2e",
+			"chart1",
+			"1",
+			"gold",
+			"temp",
+			"wood ty",
+			"true",
+			"300",
+			"5",
+			"1",
+			"Hover",
+			"Block",
+			"hDist",
+			"lDist2",
+			"hDist",
+			"oldPath1",
+			"class",
+			"lDist",
+			"4",
+			"city",
+			"11",
+			"th",
+			"rawselectio",
+			"rawSelection",
+			"cityView",
+			"gold",
+			"h",
+			"hum",
+			"temp",
+			"chart1.varView",
+			"woodString",
+			"year",
+			"yearLabel",
+			"auto_complete_commit_on_tab",
+			"10",
+			"chart1.labelVarView()",
+			"svg",
+			"super+z",
+			"dataTransform.filterCity(",
+			"labelVarView",
+			"filter",
+			".varRadial",
+			"varRadial",
+			"[4, -4]",
+			"[-4,4]",
+			"[4,-4]",
+			"black",
+			"white",
+			"black",
+			"point",
+			"button",
+			".append(\"text\")",
+			"text",
+			"forEach",
+			"round",
+			"bands",
+			"cityView",
+			"labelVarView",
+			"conso",
+			"(d)",
+			"varview.d",
+			"console",
+			"city2",
+			"chart1.varView.update",
+			"chart1.varView.update()",
+			"selectedWood",
+			"v-e-selected",
+			"chart1.varView.addRed",
+			"dataTransform.calculateVar",
+			"label",
+			"remove",
+			"ip",
+			"red",
+			"pointer",
+			"woodV",
+			"v",
+			"V",
+			"v",
+			"class",
+			"woods",
+			"left",
+			"console",
+			"view.",
+			"view.w()",
+			"varView",
+			"varView.",
+			"varView.w"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"#f4f4f4",
+			"\"green\"",
+			"chart3",
+			"\"green\"",
+			"\"gree\"",
+			"chart3",
+			"chart2",
+			"sel",
+			";",
+			".",
+			"lc.rect",
+			"var ",
+			"var;",
+			"(var)"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		},
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 0.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			],
+			[
+				1,
+				0,
+				2,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			0.5,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 25.0
+	},
+	"output.scope_viewer":
+	{
+		"height": 0.0
+	},
+	"output.sftp":
+	{
+		"height": 102.0
+	},
+	"output.unsaved_changes":
+	{
+		"height": 100.0
+	},
+	"replace":
+	{
+		"height": 64.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+			[
+				"wood",
+				"wood/08.10_monthBlocks.html"
+			],
+			[
+				"css",
+				"wood/css.css"
+			],
+			[
+				"json",
+				"wood/wood.json"
+			],
+			[
+				"weather/",
+				"weather/index.html"
+			],
+			[
+				"wea",
+				"wood/weather.html"
+			],
+			[
+				"d3",
+				"d3.v2.js"
+			],
+			[
+				"woodcss",
+				"wood/css.css"
+			],
+			[
+				"inde",
+				"weather/index.html"
+			],
+			[
+				"woodc",
+				"wood/wood.csv"
+			],
+			[
+				"woodcsv",
+				"wood/wood.csv"
+			],
+			[
+				"wood/mont",
+				"wood/08.10_monthBlocks.html"
+			],
+			[
+				"wood/",
+				"wood/08.06_monthBlocks.html"
+			],
+			[
+				"weather",
+				"weather/index.html"
+			],
+			[
+				"lcte",
+				"lc_test/lc_test.html"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"selected_items":
+		[
+			[
+				"",
+				"/Users/Luis/Documents/Projetos/2012/07.26 IxDSA 2012/PAPER_IxDSA2012.sublime-project"
+			]
+		],
+		"width": 380.0
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 225.0,
+	"status_bar_visible": true
+}

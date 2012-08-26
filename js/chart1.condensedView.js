@@ -19,7 +19,7 @@ chart1.condensedView = function (rawSelection) {
 		.rangeRoundBands([0,w], 0.001, 0)
 		.domain(citiesNames)
 	var xS = d3.scale.ordinal()
-		.rangeRoundBands([0,xSGroups.rangeBand()], 0, 0)
+		.rangeRoundBands([0,xSGroups.rangeBand()], 0.1, 0)
 		.domain(monthNames)
 
 	sel.selectAll("svg").data([1])
@@ -109,18 +109,18 @@ chart1.condensedView = function (rawSelection) {
 		.attr("pointer-events", "none")
 
 	//GROUPS Number
-	groups.append("text")
-		.text(function (d,i) {
-			return d3.format("02d")(i+1)
-		})
-		.attr({
-			fill: "white",
-			x: xSGroups.rangeBand()/2,
-			y: h/2,
-			"text-anchor": "middle",
-			"pointer-events": "none",
-			dy: ".35em"
-		})
+	// groups.append("text")
+	// 	.text(function (d,i) {
+	// 		return d3.format("02d")(i+1)
+	// 	})
+	// 	.attr({
+	// 		fill: "white",
+	// 		x: xSGroups.rangeBand()/2,
+	// 		y: h/2,
+	// 		"text-anchor": "middle",
+	// 		"pointer-events": "none",
+	// 		dy: ".35em"
+	// 	})
 
 	//GROUPS Color
 	groups.each(function (d,i) {
