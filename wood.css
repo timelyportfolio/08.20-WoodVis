@@ -1,6 +1,6 @@
 body, p, html, header {
 	/*font-family: "facitweb";*/
-	font-family: "museo-sans", "Helvetica";
+	font-family: "museo-sans", "Helvetica Neue", "Helvetica";
 	font-size: 12px;
 	margin: 0;
 	padding: 0;
@@ -10,8 +10,20 @@ body, p, html, header {
 p {
 	line-height: 1.1666666667em
 }
+section {
+	position: relative;
+}
 .relative{
 	height: 500px;
+}
+.loading {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin: auto;
+	text-align: center;
+	/*height: 500px;*/
+	font-weight: bold;
 }
 
 a:hover, a:active, a:visited, a, a:link {

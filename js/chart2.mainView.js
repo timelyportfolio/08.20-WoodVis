@@ -53,7 +53,7 @@ chart2.mainView = function (rawSelection) {
 	if (focusOn == "temp") {
 		months.append("text")
 			.attr({
-				class: "detailText",
+				"class": "detailText",
 				"x": xS.rangeBand()/3*0+xS.rangeBand()/6,
 				"y": function (d) {return tempYS(d.t[0])},
 				"fill": "red",
@@ -63,7 +63,7 @@ chart2.mainView = function (rawSelection) {
 			.text(function (d) {return d3.round(d.t[0], 1)+"º"})
 		months.append("text")
 			.attr({
-				class: "detailText",
+				"class": "detailText",
 				"x": xS.rangeBand()/3*0+xS.rangeBand()/6,
 				"y": function (d) {return tempYS(d.t[1])},
 				"fill": "red",
@@ -90,7 +90,7 @@ chart2.mainView = function (rawSelection) {
 	if (focusOn == "hum") {
 		months.append("text")
 			.attr({
-				class: "detailText",
+				"class": "detailText",
 				"x": xS.rangeBand()/3*1+xS.rangeBand()/6,
 				"y": function (d) {return humYS(d.h[0])},
 				"fill": "blue",
@@ -100,7 +100,7 @@ chart2.mainView = function (rawSelection) {
 			.text(function (d) {return d3.round(d.h[0], 1)+"%"})
 		months.append("text")
 			.attr({
-				class: "detailText",
+				"class": "detailText",
 				"x": xS.rangeBand()/3*1+xS.rangeBand()/6,
 				"y": function (d) {return humYS(d.h[1])},
 				"fill": "blue",
@@ -127,7 +127,7 @@ chart2.mainView = function (rawSelection) {
 	if (focusOn == "emc") {
 		months.append("text")
 			.attr({
-				class: "detailText",
+				"class": "detailText",
 				"x": xS.rangeBand()/3*2+xS.rangeBand()/6,
 				"y": function (d) {return emcYS(d.emc[0])},
 				"fill": "gray",
@@ -137,7 +137,7 @@ chart2.mainView = function (rawSelection) {
 			.text(function (d) {return d3.round(d.emc[0], 1)+"%"})
 		months.append("text")
 			.attr({
-				class: "detailText",
+				"class": "detailText",
 				"x": xS.rangeBand()/3*2+xS.rangeBand()/6,
 				"y": function (d) {return emcYS(d.emc[1])},
 				"fill": "gray",
@@ -360,7 +360,7 @@ chart2.mainView = function (rawSelection) {
 		if (focusOn == "emc") {
 			months.append("text")
 				.attr({
-					class: "detailText",
+					"class": "detailText",
 					"x": xS.rangeBand()/3*2+xS.rangeBand()/6,
 					"y": function (d) {return emcYS(d.emc[0])},
 					"fill": "gray",
@@ -372,7 +372,7 @@ chart2.mainView = function (rawSelection) {
 				.attr("opacity", 1)
 			months.append("text")
 				.attr({
-					class: "detailText",
+					"class": "detailText",
 					"x": xS.rangeBand()/3*2+xS.rangeBand()/6,
 					"y": function (d) {return emcYS(d.emc[1])},
 					"fill": "gray",
@@ -386,7 +386,7 @@ chart2.mainView = function (rawSelection) {
 		if (focusOn == "temp") {
 			months.append("text")
 				.attr({
-					class: "detailText",
+					"class": "detailText",
 					"x": xS.rangeBand()/3*0+xS.rangeBand()/6,
 					"y": function (d) {return tempYS(d.t[0])},
 					"fill": "red",
@@ -398,7 +398,7 @@ chart2.mainView = function (rawSelection) {
 				.attr("opacity", 1)
 			months.append("text")
 				.attr({
-					class: "detailText",
+					"class": "detailText",
 					"x": xS.rangeBand()/3*0+xS.rangeBand()/6,
 					"y": function (d) {return tempYS(d.t[1])},
 					"fill": "red",
@@ -412,7 +412,7 @@ chart2.mainView = function (rawSelection) {
 		if (focusOn == "hum") {
 			months.append("text")
 				.attr({
-					class: "detailText",
+					"class": "detailText",
 					"x": xS.rangeBand()/3*1+xS.rangeBand()/6,
 					"y": function (d) {return humYS(d.h[0])},
 					"fill": "blue",
@@ -424,7 +424,7 @@ chart2.mainView = function (rawSelection) {
 				.attr("opacity", 1)
 			months.append("text")
 				.attr({
-					class: "detailText",
+					"class": "detailText",
 					"x": xS.rangeBand()/3*1+xS.rangeBand()/6,
 					"y": function (d) {return humYS(d.h[1])},
 					"fill": "blue",
@@ -508,7 +508,7 @@ chart2.mainView = function (rawSelection) {
 		if (focusOn2 == "emc") {
 			months.append("text")
 				.attr({
-					class: "detailText",
+					"class": "detailText",
 					"x": xS.rangeBand()/3*2+xS.rangeBand()/6,
 					"y": function (d) {return emcYS(d.emc[0])},
 					"fill": "gray",
@@ -520,7 +520,7 @@ chart2.mainView = function (rawSelection) {
 				.transition()
 			months.append("text")
 				.attr({
-					class: "detailText",
+					"class": "detailText",
 					"x": xS.rangeBand()/3*2+xS.rangeBand()/6,
 					"y": function (d) {return emcYS(d.emc[1])},
 					"fill": "gray",
@@ -534,7 +534,7 @@ chart2.mainView = function (rawSelection) {
 		if (focusOn2 == "temp") {
 			months.append("text")
 				.attr({
-					class: "detailText",
+					"class": "detailText",
 					"x": xS.rangeBand()/3*0+xS.rangeBand()/6,
 					"y": function (d) {return tempYS(d.t[0])},
 					"fill": "red",
@@ -546,7 +546,7 @@ chart2.mainView = function (rawSelection) {
 				.transition()
 			months.append("text")
 				.attr({
-					class: "detailText",
+					"class": "detailText",
 					"x": xS.rangeBand()/3*0+xS.rangeBand()/6,
 					"y": function (d) {return tempYS(d.t[1])},
 					"fill": "red",
@@ -560,7 +560,7 @@ chart2.mainView = function (rawSelection) {
 		if (focusOn2 == "hum") {
 			months.append("text")
 				.attr({
-					class: "detailText",
+					"class": "detailText",
 					"x": xS.rangeBand()/3*1+xS.rangeBand()/6,
 					"y": function (d) {return humYS(d.h[0])},
 					"fill": "blue",
@@ -572,7 +572,7 @@ chart2.mainView = function (rawSelection) {
 				.transition()
 			months.append("text")
 				.attr({
-					class: "detailText",
+					"class": "detailText",
 					"x": xS.rangeBand()/3*1+xS.rangeBand()/6,
 					"y": function (d) {return humYS(d.h[1])},
 					"fill": "blue",
@@ -663,7 +663,7 @@ chart2.mainView = function (rawSelection) {
 		if (focusOn == "emc") {
 			months.append("text")
 				.attr({
-					class: "detailText",
+					"class": "detailText",
 					"x": xS.rangeBand()/3*2+xS.rangeBand()/6,
 					"y": function (d) {return emcYS(d.emc[0])},
 					"fill": "gray",
@@ -679,7 +679,7 @@ chart2.mainView = function (rawSelection) {
 				.attr("opacity", 1)
 			months.append("text")
 				.attr({
-					class: "detailText",
+					"class": "detailText",
 					"x": xS.rangeBand()/3*2+xS.rangeBand()/6,
 					"y": function (d) {return emcYS(d.emc[1])},
 					"fill": "gray",
@@ -697,7 +697,7 @@ chart2.mainView = function (rawSelection) {
 		if (focusOn == "temp") {
 			months.append("text")
 				.attr({
-					class: "detailText",
+					"class": "detailText",
 					"x": xS.rangeBand()/3*0+xS.rangeBand()/6,
 					"y": function (d) {return tempYS(d.t[0])},
 					"fill": "red",
@@ -713,7 +713,7 @@ chart2.mainView = function (rawSelection) {
 				.attr("opacity", 1)
 			months.append("text")
 				.attr({
-					class: "detailText",
+					"class": "detailText",
 					"x": xS.rangeBand()/3*0+xS.rangeBand()/6,
 					"y": function (d) {return tempYS(d.t[1])},
 					"fill": "red",
@@ -731,7 +731,7 @@ chart2.mainView = function (rawSelection) {
 		if (focusOn == "hum") {
 			months.append("text")
 				.attr({
-					class: "detailText",
+					"class": "detailText",
 					"x": xS.rangeBand()/3*1+xS.rangeBand()/6,
 					"y": function (d) {return humYS(d.h[0])},
 					"fill": "blue",
@@ -747,7 +747,7 @@ chart2.mainView = function (rawSelection) {
 				.attr("opacity", 1)
 			months.append("text")
 				.attr({
-					class: "detailText",
+					"class": "detailText",
 					"x": xS.rangeBand()/3*1+xS.rangeBand()/6,
 					"y": function (d) {return humYS(d.h[1])},
 					"fill": "blue",

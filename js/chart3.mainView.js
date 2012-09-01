@@ -66,7 +66,7 @@ chart3.mainView = function (rawSelection) {
 			fill: "black", "font-size": fSize,
 			"font-weight": "bold",
 			dy: ".35em", "text-anchor": "end",
-			class: "text1"
+			"class": "text1"
 		})
 	months.append("text")
 		.text(function(d){return d3.round(d.abs[1], 1)+"%"})
@@ -84,7 +84,7 @@ chart3.mainView = function (rawSelection) {
 			fill: "black", "font-size": fSize,
 			"font-weight": "bold",
 			dy: ".35em", "text-anchor": "end",
-			class: "text2"
+			"class": "text2"
 		})
 	months.append("path")
 		.attr({
@@ -95,7 +95,7 @@ chart3.mainView = function (rawSelection) {
 			stroke: "black",
 			"stroke-width": 1, "shape-rendering": "crispEdges",
 			fill: "none",
-			class: "line"
+			"class": "line"
 		})
 	months.append("path")
 		.attr({
@@ -108,7 +108,7 @@ chart3.mainView = function (rawSelection) {
 			stroke: "black",
 			"stroke-width": 1, "shape-rendering": "crispEdges",
 			fill: "none",
-			class: "colchete"
+			"class": "colchete"
 		})
 	
 

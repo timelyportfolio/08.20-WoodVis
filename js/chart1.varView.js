@@ -138,7 +138,7 @@ chart1.varView = function (rawSelection) {
 				y: function (e) {return yS(d.vm[0])},
 				"text-anchor": "middle",
 				dy: "-.4em",
-				class: "v-e-label",
+				"class": "v-e-label",
 				"pointer-events": "none",
 				"font-size": 11,
 				"font-weight": "bold",
@@ -152,7 +152,7 @@ chart1.varView = function (rawSelection) {
 				y: function (e) {return yS(d.vm[1])},
 				"text-anchor": "middle",
 				dy: "1em",
-				class: "v-e-label",
+				"class": "v-e-label",
 				"pointer-events": "none",
 				"font-size": 11,
 				"font-weight": "bold",
@@ -171,7 +171,7 @@ chart1.varView = function (rawSelection) {
 						return "#fd627b"
 					} else{return "none"};
 				},
-				class: "v-e-label",
+				"class": "v-e-label",
 				"pointer-events": "none",
 				"font-size": 11
 			})
@@ -188,7 +188,7 @@ chart1.varView = function (rawSelection) {
 						return "#fd627b"
 					} else{return "none"};
 				},
-				class: "v-e-label",
+				"class": "v-e-label",
 				"pointer-events": "none",
 				"font-size": 11
 			})

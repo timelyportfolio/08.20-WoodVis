@@ -31,10 +31,8 @@ chart3.selectWoodVarTypeView = function (rawSelection) {
 			"pointer-events": "none"
 		})
 		.classed("v-topRowNameLabel", true)
-	var woodTypeData = [
-		{name: "Tangential", type: "varTangencial"},
-		{name: "Radial", type: "varRadial"},
-		// {name: "Volumetric", type: "varVolumetrica"}
+	var woodTypeData = [{name: "Tangential", type: "varTangencial"},
+		{name: "Radial", type: "varRadial"}
 	]
 	var buttons = sel.selectAll(".v-woodButton").data(woodTypeData)
 		.enter().append("div")
@@ -170,7 +168,7 @@ chart3.woodView = function (rawSelection) {
 		.style({
 			width:"100%", height:"100%",
 			// "margin": "0px 0px 0 30px",
-			"padding": "0px 0px 0 0px",
+			"padding": "0px 0px 0 0px"
 			// overflow: "auto"
 		})
 

@@ -6,6 +6,8 @@
 	<!--[if lt IE 9]>
 	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
 	<![endif]-->
+
+	<!-- DEVELOPMENT --><!-- 
 	<script type="text/javascript" src="js/lib/d3.v2.js"></script>
 	<script type="text/javascript" src="js/dataTransform.js"></script>
 	<script type="text/javascript" src="js/chart1.js"></script>
@@ -27,17 +29,22 @@
 
 	<script type="text/javascript" src="js/layout.js"></script>
 
+ -->
+ 	<!-- CSS -->
 	<link type="text/css" rel="stylesheet" href="wood.css"/>
-<!-- 
-	<script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
-  -->
+
+ 	<!-- DEPLOY -->
+ 	<script src="http://d3js.org/d3.v2.min.js"></script>	
+ 	<script type="text/javascript" src="js/default.js"></script>
+	
+	<!-- TYPEKIT -->
 	<script type="text/javascript" src="//use.typekit.net/zku6jkd.js"></script>
 	<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
 
+	<!-- GOOGLE ANALYTICS -->
 	<script type="text/javascript">
-
 	  var _gaq = _gaq || [];
-	  _gaq.push(['_setAccount', 'UA-12228453-3']);
+	  _gaq.push(['_setAccount', 'UA-12228453-4']);
 	  _gaq.push(['_trackPageview']);
 
 	  (function() {
@@ -45,7 +52,6 @@
 	    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
 	    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
 	  })();
-
 	</script>
 
 </head>
@@ -58,7 +64,7 @@
 				<div class="logo"><a href="http://luiscarli.com" target="_blank">Luis Carli</a> and <a href="http://www.rafaelpassarelli.com" target="_blank">Rafael Passarelli</a></strong>
 				</div>
 
-				<div class="dataSel" style="float: right;">data from: <a>World</a> | <a class="sel">Brasil</a></div>
+				<div class="dataSel" style="float: right;">data from: <a class="nosel" vdata="woodWorld.json">World</a> | <a class="sel" vdata="woodBrasil.json">Brasil</a></div>
 			</div>
 		</div>
 	<!-- </div> -->
@@ -83,7 +89,9 @@
 		</div>
 	</div>
 
-	<section id="chart2" style="margin-top: 60px; margin-bottom: 60px"></section>
+	<section id="chart2" style="margin-top: 60px; margin-bottom: 60px; height: 815px">
+		<div class="loading">loading visualization</div>
+	</section>
 
 
 	<div class="container">
@@ -98,7 +106,9 @@
 		</div>
 	</div>
 
-	<section id="chart3" style="margin-top: 60px; margin-bottom: 80px"></section>
+	<section id="chart3" style="margin-top: 60px; margin-bottom: 80px; height: 775px">
+		<div class="loading">loading visualization</div>
+	</section>
 
 	<div class="container">
 		<div class="row">
@@ -111,7 +121,9 @@
 		</div>
 	</div>
 
-	<section id="chart1" style="margin-top: 60px; margin-bottom: 60px"></section>
+	<section id="chart1" style="margin-top: 60px; margin-bottom: 120px; height: 775px">
+		<div class="loading">loading visualization</div>
+	</section>
 
 
 	<div class="full2">
@@ -139,24 +151,45 @@
 
 <script type="text/javascript">
 
-d3.json("woodWorld.json", function LoadJSON (json) {
-	data = json
-	selectedWood = data.wood[0].nomeCientifico
-	data.cities.forEach(function (d,i) {
-		dataTransform.filterCity(d.name)
-		dataTransform.calculateVar(d, selectedWood)
-		dataTransform.calculateMonthArea(d)
+d3.select(".dataSel .sel").on("click", onSelClick)
+loadData("woodWorld.json")
+
+function onSelClick (){
+	d3.select(".dataSel .nosel")
+		.attr("class", "sel")
+		.on("click", onSelClick)
+	var dataPath = d3.select(this).attr("class", "nosel")
+		.on("click", "null")
+		.attr("vdata")
+	loadData(dataPath)
+}
+
+function clear(){
+	d3.selectAll("section>div").remove()
+}
+
+function loadData (path) {
+	d3.json(path, function LoadJSON (json) {
+		clear()
+		data = json
+		selectedWood = data.wood[0].nomeCientifico
+		data.cities.forEach(function (d,i) {
+			dataTransform.filterCity(d.name)
+			dataTransform.calculateVar(d, selectedWood)
+			dataTransform.calculateMonthArea(d)
+		})
+		data.cities.sort(function (a,b) {
+			return b.area - a.area
+		})
+		selectedCity = data.cities[0].name
+		data.wood.sort(function (a,b) {
+			return +b[selectedVariation] - a[selectedVariation]
+		})
+		selectedWood = data.wood[0].nomeCientifico
+		layout(layoutData)
 	})
-	data.cities.sort(function (a,b) {
-		return b.area - a.area
-	})
-	selectedCity = data.cities[0].name
-	data.wood.sort(function (a,b) {
-		return +b[selectedVariation] - a[selectedVariation]
-	})
-	selectedWood = data.wood[0].nomeCientifico
-	layout(layoutData)
-})
+}
+
 
 </script>
 </body>

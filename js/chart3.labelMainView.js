@@ -31,7 +31,7 @@ chart3.labelMainView = function (rawSelection) {
 			"text-anchor": "middle", dy: "-.3em",
 			fill: "green", "font-weight": "bold",
 			"font-size": 12,
-			class: "green"
+			"class": "green"
 		})
 
 	sel.append("text")
@@ -41,7 +41,7 @@ chart3.labelMainView = function (rawSelection) {
 			"text-anchor": "middle", dy: "+1em",
 			fill: "green", "font-weight": "bold",
 			"font-size": 12,
-			class: "green"
+			"class": "green"
 		})
 
 	//Limit1
@@ -58,7 +58,7 @@ chart3.labelMainView = function (rawSelection) {
 			"font-size": fSize, "font-weight": "bold",
 			"text-anchor": "end", "dy": ".35em",
 			"font-size": fSize,
-			class: "higher"
+			"class": "higher"
 		})
 		.text("higher")
 	//".l1-text1"
@@ -78,7 +78,7 @@ chart3.labelMainView = function (rawSelection) {
 			"font-size": fSize, "font-weight": "bold",
 			"text-anchor": "end", "dy": ".35em",
 			"font-size": fSize,
-			class: "l1-text1"
+			"class": "l1-text1"
 		})
 		.text(function(d){
 			return d3.round(city.absLabel1[0], 1) + "%"
@@ -100,7 +100,7 @@ chart3.labelMainView = function (rawSelection) {
 			"font-size": fSize, "font-weight": "bold",
 			"text-anchor": "end", "dy": ".35em",
 			"font-size": fSize,
-			class: "l1-text2"
+			"class": "l1-text2"
 		})
 		.text(function(d){
 			return d3.round(city.absLabel1[1], 1) + "%"
@@ -115,7 +115,7 @@ chart3.labelMainView = function (rawSelection) {
 			stroke: "gray",
 			"stroke-width": 2, "shape-rendering": "crispEdges",
 			fill: "none",
-			class:"l1-line"
+			"class":"l1-line"
 		})
 	//".l1-path"
 	sel.append("path")
@@ -129,7 +129,7 @@ chart3.labelMainView = function (rawSelection) {
 			stroke: "gray",
 			"stroke-width": 1, "shape-rendering": "crispEdges",
 			fill: "none",
-			class:"l1-path"
+			"class":"l1-path"
 		})
 
 	//Limit2
@@ -146,7 +146,7 @@ chart3.labelMainView = function (rawSelection) {
 			"font-size": fSize, "font-weight": "bold",
 			"text-anchor": "start", "dy": ".35em",
 			"font-size": fSize,
-			class:"lower"
+			"class":"lower"
 		})
 		.text("lower")
 	//".l2-txt1"
@@ -166,7 +166,7 @@ chart3.labelMainView = function (rawSelection) {
 			"font-size": fSize, "font-weight": "bold",
 			"text-anchor": "start", "dy": ".35em",
 			"font-size": fSize,
-			class:"l2-txt1"
+			"class":"l2-txt1"
 		})
 		.text(function(d){
 			return d3.round(city.absLabel2[0], 1) + "%"
@@ -188,7 +188,7 @@ chart3.labelMainView = function (rawSelection) {
 			"font-size": fSize, "font-weight": "bold",
 			"text-anchor": "start", "dy": ".35em",
 			"font-size": fSize,
-			class:"l2-txt2"
+			"class":"l2-txt2"
 		})
 		.text(function(d){
 			return d3.round(city.absLabel2[1], 1) + "%"
@@ -203,7 +203,7 @@ chart3.labelMainView = function (rawSelection) {
 			stroke: "gray",
 			"stroke-width": 2, "shape-rendering": "crispEdges",
 			fill: "none",
-			class:"l2-line"
+			"class":"l2-line"
 		})
 	//".l2-path"
 	sel.append("path")
@@ -217,7 +217,7 @@ chart3.labelMainView = function (rawSelection) {
 			stroke: "gray",
 			"stroke-width": 1, "shape-rendering": "crispEdges",
 			fill: "none",
-			class:"l2-path"
+			"class":"l2-path"
 		})
 
 	chart3.labelMainView.hoverOn = function (cityString, woodString, varString) {
