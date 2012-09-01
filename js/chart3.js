@@ -6,13 +6,13 @@ chart3.title = function (rawSelection) {
 		height: "auto"
 	})
 	sel.append("p")
-		.html("Wood <span style=\"color:green\">Absolute</span> Size Variation")
+		.html("Wood <span style=\"color:green\">Absolute</span> Dimensional Change")
 		.style({
 			"text-align": "left",
 			padding: "0 0 20px",
 			"margin": "0px",
-			"font-size": "40px",
-			"font-weight": "bold"
+			"font-size": "40px"
+			// "font-weight": "bold"
 		})
 }
 
@@ -24,7 +24,7 @@ chart3.cityNameLabel = function (rawSelection) {
 chart3.selectWoodVarTypeView = function (rawSelection) {
 	var sel = d3.select(rawSelection)
 	sel.append("div")
-		.text("Variation Type")
+		.text("Wood Direction")
 		.style({
 			"float": "left",
 			"margin-right": "10px",
@@ -60,6 +60,7 @@ chart3.selectWoodVarTypeView = function (rawSelection) {
 			};
 			chart3.mainView.hoverInfoOn(false, false, d.type)
 			chart3.labelMainView.hoverOn(false, false, d.type)
+			chart3.condensedView.adjust(false, d.type)
 			// chart1.condensedView.update(selectedWood, d.type)
 			// chart1.varView.removeLabel()
 			// chart1.labelVarView.d = undefined
@@ -82,10 +83,7 @@ chart3.selectWoodVarTypeView = function (rawSelection) {
 			}
 			chart3.mainView.hoverInfoOff()
 			chart3.labelMainView.hoverOff() 
-			// chart1.condensedView.update()
-			// chart1.varView.removeRed()
-			// chart1.labelVarView.d = undefined
-			// chart1.labelVarView()
+			chart3.condensedView.adjust()
 		})
 		.each(function (d,i){
 			if (d.type == selectedVariation) {
@@ -99,29 +97,63 @@ chart3.selectWoodVarTypeView = function (rawSelection) {
 		})
 		.on("click", function (d) {
 			selectedVariation = d.type
+			
+			data.wood.sort(function (a,b) {
+				return +b[selectedVariation] - a[selectedVariation]
+			})
+			//Chart1
+			//cityView
+			//LabelView
+			chart1.labelVarView.hoverOff()
+			//VarView
+			chart1.varView.removeLabel()
+			chart1.varView.hoverOff()
+			//WoodView
+			d3.select(chart1.woodView.rawSelection)
+				.select("div").remove()
+			chart1.woodView()
+			//CondensedView
+			chart1.condensedView.update()
+			chart1.selectWoodVarTypeView.setSelection()
+
+
+			//Chart2
+			chart2.labelMainView.removeCityHover()
+			chart2.mainView.cityHover(selectedCity)
+			chart2.mainView.cityRemoveHover()
+			chart2.condensedView.setSelection()
+
+			//Chart3
+			d3.select(chart3.woodView.rawSelection)
+				.select("div").remove()
+
+			chart3.woodView()
 			chart3.mainView.hoverInfoOff()
 			chart3.labelMainView.hoverOff() 
-			// chart1.labelVarView.clickTransition()
-			// chart1.varView.update()
-			// chart1.condensedView.update()
-			buttons
-				.classed("v-e-selected", false)
+			chart3.condensedView.adjust()
+			chart3.woodView.setSelection()
+			chart3.selectWoodVarTypeView.setSelection()
+
+		})
+
+	chart3.selectWoodVarTypeView.setSelection = function () {
+
+		buttons
+			.classed("v-e-selected", false)
 				.style({
 					background: "white",
 					color: "black"
 				})
-			d3.select(this).classed("v-e-selected", true)
-				.style({
-					background: "black",
-					color: "white"
-				})
-			data.wood.sort(function (a,b) {
-				return +b[selectedVariation] - a[selectedVariation]
-			})
-			d3.select(chart3.woodView.rawSelection)
-				.select("div").remove()
-			chart3.woodView()
+		buttons.each(function (d,i){
+			if (d.type == selectedVariation) {
+				d3.select(this)
+					.style({
+						background: "black",
+						color: "white"
+					})
+			}
 		})
+	}
 }
 chart3.woodNameLabel = function (rawSelection) {
 	var sel = d3.select(rawSelection)
@@ -140,9 +172,6 @@ chart3.woodView = function (rawSelection) {
 			// "margin": "0px 0px 0 30px",
 			"padding": "0px 0px 0 0px",
 			// overflow: "auto"
-		})
-		.on("mouseout", function () {
-			// chart1.condensedView.update(selectedWood)
 		})
 
 		.selectAll("div").data(data.wood)
@@ -177,11 +206,8 @@ chart3.woodView = function (rawSelection) {
 			})
 			chart3.mainView.hoverInfoOn(false, d.nomeCientifico, false)
 			chart3.labelMainView.hoverOn(false, d.nomeCientifico, false)
-			// chart1.varView.removeLabel()
-			// chart1.labelVarView.d = undefined
-			// chart1.labelVarView(false, d.nomeCientifico, false, false, red)
+			chart3.condensedView.adjust(d.nomeCientifico, false)
 
-			// chart1.condensedView.update(d.nomeCientifico)
 		})
 		.on("mouseout", function (d,i) {
 			var sel = d3.select(this)
@@ -200,27 +226,34 @@ chart3.woodView = function (rawSelection) {
 			})
 			chart3.mainView.hoverInfoOff()
 			chart3.labelMainView.hoverOff() 
-			// chart1.varView.removeRed()
-			// chart1.labelVarView.d = undefined
-			// chart1.labelVarView()
+			chart3.condensedView.adjust()
+
 		})
 		.on("click", function (d,i){
 			selectedWood = d.nomeCientifico
+
+			//Chart1
+			//Label
+			chart1.labelVarView.hoverOff()
+			//Var
+			chart1.varView.removeLabel()
+			chart1.varView.hoverOff()
+			//Condensed
+			chart1.condensedView.setSelection()
+			chart1.woodView.setSelection()
+			chart1.condensedView.update(selectedWood)
+
+			//Chart2
+			chart2.labelMainView.removeCityHover()
+			chart2.mainView.cityHover(selectedCity)
+			chart2.mainView.cityRemoveHover()
+			chart2.condensedView.setSelection()
+
+			//Chart3
 			chart3.mainView.hoverInfoOff()
 			chart3.labelMainView.hoverOff() 
-			// chart1.varView.removeLabel()
-			// chart1.varView.update()
-
-			// chart1.labelVarView.clickTransition()
-
-			d3.select(".v-e-wSelected")
-				.classed("v-e-wSelected", false)
-				.style("background", "white")
-				.select("p").style("color", "black")
-
-			d3.select(this).classed("v-e-wSelected", true)
-				.style("background", "black")
-				.select("p").style("color", "white")
+			chart3.condensedView.adjust()
+			chart3.woodView.setSelection()
 		})
 
 	woods.append("p")
@@ -238,4 +271,28 @@ chart3.woodView = function (rawSelection) {
 				sel.style("color", "white")
 			}
 		})
+
+		chart3.woodView.setSelection = function (cityString) {
+
+			sel.selectAll(".v-e-wSelected, .red")
+				.attr("class", "")
+				.style("background", "white")
+					.select("p").style("color", "black")
+
+			woods.each(function (d,i){
+				if (d.nomeCientifico == selectedWood) {
+					d3.select(this)
+						.attr("class", "v-e-wSelected")
+						.style("background", "black")
+							.select("p").style("color", "white")
+				}
+			})
+
+		}
 }
+
+
+
+
+
+

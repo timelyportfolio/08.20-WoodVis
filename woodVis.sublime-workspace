@@ -4,6 +4,74 @@
 		"selected_items":
 		[
 			[
+				"min-",
+				"min-width"
+			],
+			[
+				"mari",
+				"margin-bottom"
+			],
+			[
+				"padd",
+				"padding-top"
+			],
+			[
+				"mar",
+				"margin-bottom"
+			],
+			[
+				"inli",
+				"inline-block"
+			],
+			[
+				"in",
+				"inline"
+			],
+			[
+				"pa",
+				"padding"
+			],
+			[
+				"fon",
+				"font-weight"
+			],
+			[
+				"font",
+				"font-size"
+			],
+			[
+				"selected",
+				"selectedWood"
+			],
+			[
+				"wood",
+				"woodView"
+			],
+			[
+				"if",
+				"ife	if … else"
+			],
+			[
+				"cha",
+				"chart2"
+			],
+			[
+				"ho",
+				"hoverOn"
+			],
+			[
+				"hoverO",
+				"hoverOff"
+			],
+			[
+				"city",
+				"cityString"
+			],
+			[
+				"month",
+				"months"
+			],
+			[
 				"str",
 				"stroke"
 			],
@@ -12,20 +80,8 @@
 				"rangeBand"
 			],
 			[
-				"if",
-				"ife	if … else"
-			],
-			[
-				"font",
-				"font-weight"
-			],
-			[
 				"rang",
 				"rangeBand"
-			],
-			[
-				"city",
-				"cityHover"
 			],
 			[
 				"trans",
@@ -64,10 +120,6 @@
 				"black"
 			],
 			[
-				"wood",
-				"woodString"
-			],
-			[
 				"year",
 				"yearLabel"
 			],
@@ -98,14 +150,6 @@
 			[
 				"mouse",
 				"mouseout"
-			],
-			[
-				"selected",
-				"selectedVariation"
-			],
-			[
-				"pa",
-				"padding-top"
 			],
 			[
 				"mou",
@@ -196,20 +240,12 @@
 				"cellData"
 			],
 			[
-				"cha",
-				"chartC"
-			],
-			[
 				"border-s",
 				"border-style	zen:css_properties"
 			],
 			[
 				"di",
 				"DIV	Tag"
-			],
-			[
-				"fon",
-				"font-style"
 			],
 			[
 				"select",
@@ -244,10 +280,6 @@
 				"labelVarView"
 			],
 			[
-				"month",
-				"monthNames"
-			],
-			[
 				"fi",
 				"filterCity"
 			],
@@ -270,10 +302,6 @@
 			[
 				"hH",
 				"hH"
-			],
-			[
-				"in",
-				"interpolate"
 			],
 			[
 				"margin",
@@ -403,20 +431,76 @@
 	},
 	"buffers":
 	[
+		{
+			"file": "js/layout.js",
+			"settings":
+			{
+				"buffer_size": 5930,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "index.html",
+			"settings":
+			{
+				"buffer_size": 7041,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "wood.css",
+			"settings":
+			{
+				"buffer_size": 2091,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "js/chart1.varView.js",
+			"settings":
+			{
+				"buffer_size": 7961,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "js/chart1.condensedView.js",
+			"settings":
+			{
+				"buffer_size": 5719,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "js/chart2.condensedView.js",
+			"settings":
+			{
+				"buffer_size": 4576,
+				"line_ending": "Unix"
+			}
+		}
 	],
 	"build_system": "",
 	"command_palette":
 	{
-		"height": 137.0,
+		"height": 375.0,
 		"selected_items":
 		[
 			[
-				"synjs",
-				"Set Syntax: JavaScript"
+				"zen",
+				"Zen Coding: Zen as you type"
 			],
 			[
 				"packdisc",
 				"Package Control: Discover Packages"
+			],
+			[
+				"packin",
+				"Package Control: Install Package"
+			],
+			[
+				"synjs",
+				"Set Syntax: JavaScript"
 			],
 			[
 				"packinst",
@@ -489,10 +573,6 @@
 			[
 				"packa",
 				"Package Control: Disable Package"
-			],
-			[
-				"packin",
-				"Package Control: Install Package"
 			],
 			[
 				"pa",
@@ -579,7 +659,7 @@
 				"Snippet: html"
 			]
 		],
-		"width": 435.0
+		"width": 558.0
 	},
 	"console":
 	{
@@ -596,21 +676,26 @@
 	},
 	"file_history":
 	[
-		"/Users/Luis/Documents/Projetos/2012/08.20 WoodVis/js/chart3.mainView.js",
-		"/Users/Luis/Documents/Projetos/2012/08.20 WoodVis/index.html",
-		"/Users/Luis/Documents/Projetos/2012/08.20 WoodVis/js/chart3.js",
-		"/Users/Luis/Documents/Projetos/2012/08.20 WoodVis/js/chart3.labelMainView.js",
-		"/Users/Luis/Documents/Projetos/2012/08.20 WoodVis/js/chart2.labelMainView.js",
-		"/Users/Luis/Documents/Projetos/2012/08.20 WoodVis/js/chart1.varView.js",
-		"/Users/Luis/Documents/Projetos/2012/08.20 WoodVis/js/dataTransform.js",
-		"/Users/Luis/Documents/Projetos/2012/08.20 WoodVis/js/chart3.cityView.js",
-		"/Users/Luis/Documents/Projetos/2012/08.20 WoodVis/js/chart3.condensedView.js",
-		"/Users/Luis/Documents/Projetos/2012/08.20 WoodVis/js/chart1.condensedView.js",
 		"/Users/Luis/Documents/Projetos/2012/08.20 WoodVis/js/chart2.condensedView.js",
 		"/Users/Luis/Documents/Projetos/2012/08.20 WoodVis/js/chart2.mainView.js",
-		"/Users/Luis/Documents/Projetos/2012/08.20 WoodVis/js/chart2.js",
+		"/Users/Luis/Documents/Projetos/2012/08.20 WoodVis/js/chart2.labelMainView.js",
+		"/Users/Luis/Documents/Projetos/2012/08.20 WoodVis/js/chart3.condensedView.js",
+		"/Users/Luis/Documents/Projetos/2012/08.20 WoodVis/js/chart1.varView.js",
+		"/Users/Luis/Documents/Projetos/2012/08.20 WoodVis/js/chart1.labelVarView.js",
+		"/Users/Luis/Documents/Projetos/2012/08.20 WoodVis/woodWorld.json",
+		"/Users/Luis/Documents/Projetos/2012/08.20 WoodVis/wood.css",
+		"/Users/Luis/Documents/Projetos/2012/08.20 WoodVis/wood changes.md",
+		"/Users/Luis/Documents/Projetos/2012/08.20 WoodVis/js/layout.js",
 		"/Users/Luis/Documents/Projetos/2012/08.20 WoodVis/js/chart1.js",
+		"/Users/Luis/Documents/Projetos/2012/08.20 WoodVis/js/chart2.js",
+		"/Users/Luis/Documents/Projetos/2012/08.20 WoodVis/js/chart3.js",
 		"/Users/Luis/Documents/Projetos/2012/08.20 WoodVis/js/chart1.cityView.js",
+		"/Users/Luis/Documents/Projetos/2012/08.20 WoodVis/js/chart1.condensedView.js",
+		"/Users/Luis/Documents/Projetos/2012/08.20 WoodVis/index.html",
+		"/Users/Luis/Documents/Projetos/2012/08.20 WoodVis/js/chart3.cityView.js",
+		"/Users/Luis/Documents/Projetos/2012/08.20 WoodVis/js/chart3.mainView.js",
+		"/Users/Luis/Documents/Projetos/2012/08.20 WoodVis/js/chart3.labelMainView.js",
+		"/Users/Luis/Documents/Projetos/2012/08.20 WoodVis/js/dataTransform.js",
 		"/Users/Luis/Documents/Projetos/2012/08.20 WoodVis/wood.html",
 		"/Users/Luis/Library/Application Support/Sublime Text 2/Packages/User/Preferences.sublime-settings",
 		"/Users/Luis/Documents/Projetos/2012/04.09 VIS/wood/wood.json",
@@ -697,6 +782,30 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"\\(\\d\\)",
+			"Band",
+			"pouter",
+			"\\d\\t",
+			"---",
+			"\\d[\\t]",
+			"400",
+			"cSelected",
+			"selectAll(\"text",
+			"250",
+			"focusOn",
+			"delay",
+			"blue",
+			"hum",
+			"tempYS",
+			"0",
+			"green",
+			"chart1.labelVarView(",
+			"color1",
+			"color2",
+			"black",
+			"color1",
+			"CondensedView",
+			"green",
 			"white",
 			"#f9f9f9",
 			"\"red\"",
@@ -800,36 +909,12 @@
 			"(d)",
 			"varview.d",
 			"console",
-			"city2",
-			"chart1.varView.update",
-			"chart1.varView.update()",
-			"selectedWood",
-			"v-e-selected",
-			"chart1.varView.addRed",
-			"dataTransform.calculateVar",
-			"label",
-			"remove",
-			"ip",
-			"red",
-			"pointer",
-			"woodV",
-			"v",
-			"V",
-			"v",
-			"class",
-			"woods",
-			"left",
-			"console",
-			"view.",
-			"view.w()",
-			"varView",
-			"varView.",
-			"varView.w"
+			"city2"
 		],
 		"highlight": true,
 		"in_selection": false,
 		"preserve_case": false,
-		"regex": false,
+		"regex": true,
 		"replace_history":
 		[
 			"#f4f4f4",
@@ -856,13 +941,195 @@
 	"groups":
 	[
 		{
+			"selected": 1,
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "js/layout.js",
+					"settings":
+					{
+						"buffer_size": 5930,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								505,
+								505
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "index.html",
+					"settings":
+					{
+						"buffer_size": 7041,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								5938,
+								5938
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "wood.css",
+					"settings":
+					{
+						"buffer_size": 2091,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								237,
+								237
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/CSS/CSS.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
 			]
 		},
 		{
+			"selected": 2,
 			"sheets":
 			[
+				{
+					"buffer": 3,
+					"file": "js/chart1.varView.js",
+					"settings":
+					{
+						"buffer_size": 7961,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								497,
+								497
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "js/chart1.condensedView.js",
+					"settings":
+					{
+						"buffer_size": 5719,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								722,
+								722
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "js/chart2.condensedView.js",
+					"settings":
+					{
+						"buffer_size": 4576,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								521,
+								521
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
 			]
 		}
 	],
@@ -930,6 +1197,10 @@
 		"height": 0.0,
 		"selected_items":
 		[
+			[
+				"chart1conde",
+				"js/chart1.condensedView.js"
+			],
 			[
 				"wood",
 				"wood/08.10_monthBlocks.html"

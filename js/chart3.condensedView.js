@@ -19,7 +19,7 @@ chart3.condensedView = function (rawSelection) {
 		.rangeRoundBands([0,w], 0.1, 0)
 		.domain(citiesNames)
 	var xS = d3.scale.ordinal()
-		.rangeRoundBands([0,xSGroups.rangeBand()], 0.1, 0)
+		.rangeRoundBands([0,xSGroups.rangeBand()], 0.3, 0)
 		.domain(monthNames)
 
 	sel.selectAll("svg").data([1])
@@ -28,7 +28,7 @@ chart3.condensedView = function (rawSelection) {
 		.attr("height", h)
 	sel = sel.select("svg")
 
-	var groups = sel.selectAll("svg").data(data.cities)
+	var groups = sel.selectAll("g").data(data.cities)
 		.enter().append("g")
 		.classed("v-e-cityGroup", true)
 		.attr("transform", function (d,i) {
@@ -45,6 +45,7 @@ chart3.condensedView = function (rawSelection) {
 			} 
 			chart3.mainView.hoverInfoOn(d.name, false, false)
 			chart3.labelMainView.hoverOn(d.name, false, false)
+			chart3.cityView.setSelection(d.name)
 			// chart1.varView.removeLabel()
 			// chart1.labelVarView.d = undefined
 			// chart1.labelVarView(false, false, d.name, false, red)
@@ -59,20 +60,36 @@ chart3.condensedView = function (rawSelection) {
 			}
 			chart3.mainView.hoverInfoOff()
 			chart3.labelMainView.hoverOff() 
+			chart3.cityView.setSelection()
 			// chart1.cityView.unsetRed()
 			// chart1.labelVarView.d = undefined
 			// chart1.labelVarView()
 		})
 		.on("click", function (d) {
 			selectedCity = d.name
+			//Chart1
+			//City
+			chart1.cityView.setSelection()
+			//Label
+			chart1.labelVarView.hoverOff()
+			//Var
+			chart1.varView.removeLabel()
+			chart1.varView.hoverOff()
+			//Condensed
+			chart1.condensedView.setSelection()
+
+			//Chart2
+			chart2.labelMainView.removeCityHover()
+			chart2.mainView.cityHover(d.name)
+			chart2.mainView.cityRemoveHover()
+			chart2.condensedView.setSelection()
+			chart2.cityView.setSelection(d.name)
+
+			//Chart3
 			chart3.mainView.hoverInfoOff()
 			chart3.labelMainView.hoverOff() 
-			// chart1.varView.removeLabel()
-			// chart1.varView.update()
-
-			// chart1.labelVarView.clickTransition()
-			// chart1.cityView.setBlack()
-			// chart1.condensedView.setBlack()
+			chart3.condensedView.setSelection()
+			chart3.cityView.setSelection(d.name)
 		})
 
 	groups.append("rect")
@@ -130,6 +147,52 @@ chart3.condensedView = function (rawSelection) {
 				.attr("fill", "black")
 		};
 	})
+
+	chart3.condensedView.adjust = function (woodString, varString) {
+
+		var cityString = selectedCity
+		if (!woodString) {woodString = selectedWood};
+		if (!varString) {varString = selectedVariation};
+
+		data.cities.forEach(function (d,i) {
+			//dataTransform.filterCity(d.name)
+			dataTransform.calculateVar(d, woodString, varString)
+		})
+
+		groups.data(data.cities)
+			.selectAll(".v-e-monthBlock")
+			.data(function (d,i) {return d.months})
+			.attr("y", function (d) {
+				return yS(d.abs[0])
+			})
+			.attr("height", function (d,i) {
+				return yS(d.abs[1]) - yS(d.abs[0])
+			})
+
+	}
+
+	chart3.condensedView.setSelection = function (cityString) {
+
+		sel.selectAll(".v-e-black, .green, .v-e-monthBlock")
+			.attr("class", "v-e-monthBlock")
+			.attr("fill", "gray")
+
+		groups.each(function (d,i){
+			if (d.name == cityString) {
+				d3.select(this).selectAll(".v-e-monthBlock")
+					.classed("green", true)
+					.attr("fill", "green")
+			}
+			if (d.name == selectedCity) {
+				d3.select(this).selectAll(".v-e-monthBlock")
+					.classed("v-e-black", true)
+					.attr("fill", "black")
+			}
+		})
+
+
+	}
+
 }
 
 

@@ -11,7 +11,7 @@ chart1.varView = function (rawSelection) {
 	var h = parseFloat(sel.style("height"))
 	var yS = d3.scale.linear().domain(chart1Amplitude).range([0,h])
 	var xS = d3.scale.ordinal()
-		.rangeRoundBands([0,w], 0.02, 0)
+		.rangeBands([0,w], 0.08, 0)
 		.domain(monthNames)
 	sel = sel.append("svg")
 		.attr("width", w)
@@ -121,8 +121,7 @@ chart1.varView = function (rawSelection) {
 		sel.select("text").attr("fill", "red")
 			.attr("font-weight", "bold")
 
-		chart1.labelVarView.d = d
-		chart1.labelVarView(false, false, false, false, "red")
+		chart1.labelVarView.hoverOn(false,false,false,i)
 
 		sel.select(".v-e-monthRed")
 			.attr("fill", "red")
@@ -209,159 +208,120 @@ chart1.varView = function (rawSelection) {
 
 			sel.selectAll(".v-e-label").remove()
 				.attr("fill", "black")
-			chart1.labelVarView.d = false
-			chart1.labelVarView()
+			
+			chart1.labelVarView.hoverOff()
+			
 			months.selectAll("text").attr("fill", "gray")
 			.attr("font-weight", "none")
 		})
+
+	chart1.varView.hoverOn = function (cityString, woodString, varString) {
+
+		if (!cityString) {cityString = selectedCity};
+		if (!woodString) {woodString = selectedWood};
+		if (!varString) {varString = selectedVariation};
+
+		var city = dataTransform.filterCity(cityString)
+		dataTransform.calculateVar(city, woodString, varString)
+
+		months.data(city.months)
+
+		//Year block
+		months.select(".v-e-yearBlock")
+			.transition()
+		months.select(".v-e-yearRed")
+			.attr("y", function (d) {
+				return yS(d.vy[0])
+			})
+			.attr("height", function (d,i) {
+				return yS(d.vy[1]) - yS(d.vy[0])
+			})
+			.attr({
+				"fill": "#ffe2e6",
+				stroke: "red",
+				"stroke-width": 1
+			})
+			.transition()
+
+
+		//Month block
+		months.select(".v-e-monthBlock")
+			.transition()
+		months.select(".v-e-monthRed")
+			.attr("y", function (d) {
+				return yS(d.vm[0])
+			})
+			.attr("height", function (d,i) {
+				return yS(d.vm[1]) - yS(d.vm[0])
+			})
+			.attr("fill", "#ff0000")
+			.transition()
+
+	}
+
+	chart1.varView.hoverOff = function () {
+
+		var cityString = selectedCity
+		var woodString = selectedWood
+		var varString = selectedVariation
+
+		var city = dataTransform.filterCity(cityString)
+		dataTransform.calculateVar(city, woodString, varString)
+		months.data(city.months)
+
+		//Year block
+		months.select(".v-e-yearBlock")
+			.transition()
+			.attr("y", function (d) {
+				return yS(d.vy[0])
+			})
+			.attr("height", function (d,i) {
+				return yS(d.vy[1]) - yS(d.vy[0])
+			})
+			.attr("fill", "lightgray")
+		months.select(".v-e-yearRed")
+			.transition()
+			.attr("y", function (d) {
+				return yS(d.vy[0])
+			})
+			.attr("height", function (d,i) {
+				return yS(d.vy[1]) - yS(d.vy[0])
+			})
+			.attr({
+				"fill": "lightGray",
+				stroke: "none"
+			})
+
+
+		//Month block
+		months.select(".v-e-monthBlock")
+			.transition()
+			.attr("y", function (d) {
+				return yS(d.vm[0])
+			})
+			
+			.attr("height", function (d,i) {
+				return yS(d.vm[1]) - yS(d.vm[0])
+			})
+			.attr("fill", "#000000")
+		months.select(".v-e-monthRed")
+			.transition()
+			.attr("y", function (d) {
+				return yS(d.vm[0])
+			})
+			.attr("height", function (d,i) {
+				return yS(d.vm[1]) - yS(d.vm[0])
+			})
+			.attr("fill", "black")
+			.attr("stroke", "none")
+
+	}
+
 }
-chart1.varView.update = function () {
-	var city = dataTransform.filterCity(selectedCity)
-	dataTransform.calculateVar(city, selectedWood)
-	var sel = d3.select(chart1.varView.rawSelection)
-	var yS = chart1.varView.yS
-	var xS = chart1.varView.xS
 
-	//Define months groups
-	var months = sel.select("svg")
-		.selectAll("g").datum(undefined).data(city.months)
-
-	//Year block
-	months.select(".v-e-yearBlock")
-		.transition()
-		.attr("y", function (d) {
-			return yS(d.vy[0])
-		})
-		.attr("height", function (d,i) {
-			return yS(d.vy[1]) - yS(d.vy[0])
-		})
-		.attr("fill", "lightgray")
-	months.select(".v-e-yearRed")
-		.transition()
-		.attr("y", function (d) {
-			return yS(d.vy[0])
-		})
-		.attr("height", function (d,i) {
-			return yS(d.vy[1]) - yS(d.vy[0])
-		})
-		.attr({
-			"fill": "lightgray",
-			stroke: "none"
-		})
-
-	//Month block
-	months.select(".v-e-monthBlock")
-		.transition()
-		.attr("y", function (d) {
-			return yS(d.vm[0])
-		})
-		
-		.attr("height", function (d,i) {
-			return yS(d.vm[1]) - yS(d.vm[0])
-		})
-		.attr("fill", "#000000")
-	months.select(".v-e-monthRed")
-		.transition()
-		.attr("y", function (d) {
-			return yS(d.vm[0])
-		})
-		
-		.attr("height", function (d,i) {
-			return yS(d.vm[1]) - yS(d.vm[0])
-		})
-		.attr({
-			"fill": "black",
-			stroke: "none"
-		})
-}
 chart1.varView.removeLabel = function () {
 	d3.select(chart1.varView.rawSelection).selectAll(".v-e-label").remove()
 	var months = d3.select(chart1.varView.rawSelection).selectAll("g")
 	months.selectAll("text").attr("fill", "gray")
 			.attr("font-weight", "none")
-}
-chart1.varView.addRed = function (dwood, dcity, variationString) {
-	var woodString = selectedWood
-	var cityString = selectedCity
-
-	if (dwood) {woodString = dwood.nomeCientifico};
-	if (dcity) {cityString = dcity.name};
-	if (!variationString) {variationString = selectedVariation};
-
-	var city = dataTransform.filterCity(cityString)
-	dataTransform.calculateVar(city, woodString, variationString)
-	var sel = d3.select(chart1.varView.rawSelection)
-	var yS = chart1.varView.yS
-	var xS = chart1.varView.xS
-
-	//Define months groups
-	var months = sel.select("svg")
-		.selectAll("g").datum(undefined).data(city.months)
-
-	//Year block
-	months.select(".v-e-yearRed")
-		.attr("y", function (d) {
-			return yS(d.vy[0])
-		})
-		.attr("height", function (d,i) {
-			return yS(d.vy[1]) - yS(d.vy[0])
-		})
-		.attr({
-			"fill": "#ffe2e6",
-			stroke: "red",
-			"stroke-width": 1
-		})
-
-
-	//Month block
-	months.select(".v-e-monthRed")
-		.attr("y", function (d) {
-			return yS(d.vm[0])
-		})
-		.attr("height", function (d,i) {
-			return yS(d.vm[1]) - yS(d.vm[0])
-		})
-		.attr("fill", "#ff0000")
-}
-chart1.varView.removeRed = function () {
-	var woodString = selectedWood
-	var cityString = selectedCity
-
-	var variationString = selectedVariation
-
-	var city = dataTransform.filterCity(cityString)
-	dataTransform.calculateVar(city, woodString)
-	var sel = d3.select(chart1.varView.rawSelection)
-	var yS = chart1.varView.yS
-	var xS = chart1.varView.xS
-
-	//Define months groups
-	var months = sel.select("svg")
-		.selectAll("g").datum(undefined).data(city.months)
-
-	//Year block
-	months.select(".v-e-yearRed")
-		.attr("y", function (d) {
-			return yS(d.vy[0])
-		})
-		.attr("height", function (d,i) {
-			return yS(d.vy[1]) - yS(d.vy[0])
-		})
-		.attr({
-			"fill": "lightgray",
-			"stroke": "none"
-		})
-
-	//Month block
-	months.select(".v-e-monthRed")
-		.attr("y", function (d) {
-			return yS(d.vm[0])
-		})
-		.attr("height", function (d,i) {
-			return yS(d.vm[1]) - yS(d.vm[0])
-		})
-		.attr({
-			"fill": "black",
-			"stroke": "none"
-		})
 }

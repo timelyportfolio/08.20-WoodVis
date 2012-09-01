@@ -5,16 +5,16 @@ chart2.mainView = function (rawSelection) {
 
 	var city = dataTransform.filterCity(selectedCity)
 
-	var margins = [10,0,10,0]
+	var margins = [10,10,10,0]
 
 	var sel = d3.select(rawSelection)
 	var w = parseFloat(sel.style("width"))
 	var h = parseFloat(sel.style("height"))
-	var tempYS = d3.scale.linear().domain([40,-10])
+	var tempYS = d3.scale.linear().domain(tempAmpl)
 		.range([0+margins[0], h-margins[2]])
-	var humYS = d3.scale.linear().domain([100,0])
+	var humYS = d3.scale.linear().domain(humAmpl)
 		.range([0+margins[0], h-margins[2]])
-	var emcYS = d3.scale.linear().domain([30,5])
+	var emcYS = d3.scale.linear().domain(emcAmpl)
 		.range([0+margins[0], h-margins[2]])
 	var xS = d3.scale.ordinal()
 		.rangeRoundBands([0+margins[3], w-margins[1]], 0.0, 0)
@@ -50,6 +50,28 @@ chart2.mainView = function (rawSelection) {
 					else {return .1}
 			}
 		})
+	if (focusOn == "temp") {
+		months.append("text")
+			.attr({
+				class: "detailText",
+				"x": xS.rangeBand()/3*0+xS.rangeBand()/6,
+				"y": function (d) {return tempYS(d.t[0])},
+				"fill": "red",
+				"text-anchor": "middle", dy:"-.7em",
+				"font-size": 11
+			})
+			.text(function (d) {return d3.round(d.t[0], 1)+"º"})
+		months.append("text")
+			.attr({
+				class: "detailText",
+				"x": xS.rangeBand()/3*0+xS.rangeBand()/6,
+				"y": function (d) {return tempYS(d.t[1])},
+				"fill": "red",
+				"text-anchor": "middle", dy:"1.35em",
+				"font-size": 11
+			})
+			.text(function (d) {return d3.round(d.t[1], 1)+"º"})
+	}
 	//Hum Block
 	months.append("rect")
 		.classed("v-e-humBlock", true)
@@ -65,6 +87,28 @@ chart2.mainView = function (rawSelection) {
 					else {return .1}
 			}
 		})
+	if (focusOn == "hum") {
+		months.append("text")
+			.attr({
+				class: "detailText",
+				"x": xS.rangeBand()/3*1+xS.rangeBand()/6,
+				"y": function (d) {return humYS(d.h[0])},
+				"fill": "blue",
+				"text-anchor": "middle", dy:"-.7em",
+				"font-size": 11
+			})
+			.text(function (d) {return d3.round(d.h[0], 1)+"%"})
+		months.append("text")
+			.attr({
+				class: "detailText",
+				"x": xS.rangeBand()/3*1+xS.rangeBand()/6,
+				"y": function (d) {return humYS(d.h[1])},
+				"fill": "blue",
+				"text-anchor": "middle", dy:"1.35em",
+				"font-size": 11
+			})
+			.text(function (d) {return d3.round(d.h[1], 1)+"%"})
+	}
 	//EMC Block
 	months.append("rect")
 		.classed("v-e-emcBlock", true)
@@ -80,7 +124,28 @@ chart2.mainView = function (rawSelection) {
 					else {return .1}
 			}
 		})
-
+	if (focusOn == "emc") {
+		months.append("text")
+			.attr({
+				class: "detailText",
+				"x": xS.rangeBand()/3*2+xS.rangeBand()/6,
+				"y": function (d) {return emcYS(d.emc[0])},
+				"fill": "gray",
+				"text-anchor": "middle", dy:"-.7em",
+				"font-size": 11
+			})
+			.text(function (d) {return d3.round(d.emc[0], 1)+"%"})
+		months.append("text")
+			.attr({
+				class: "detailText",
+				"x": xS.rangeBand()/3*2+xS.rangeBand()/6,
+				"y": function (d) {return emcYS(d.emc[1])},
+				"fill": "gray",
+				"text-anchor": "middle", dy:"1.35em",
+				"font-size": 11
+			})
+			.text(function (d) {return d3.round(d.emc[1], 1)+"%"})
+	}
 	////////////
 	//HOVER
 	//Temp Block
@@ -145,7 +210,7 @@ chart2.mainView = function (rawSelection) {
 			y: h-6,
 			"text-anchor": "middle",
 			"pointer-events": "none",
-			fill: "gray"
+			fill: "black", "font-weight": "bold"
 		})
 		.text(function (d) {return d.month})
 
@@ -154,6 +219,9 @@ chart2.mainView = function (rawSelection) {
 
 		var cityHover = dataTransform.filterCity(selCityString)
 		months.data(cityHover.months)
+
+		months.selectAll(".detailText").remove()
+
 		////////////
 		//HOVER
 		months.select(".v-e-tempHover")
@@ -288,11 +356,91 @@ chart2.mainView = function (rawSelection) {
 						else {return .1}
 				}})
 
-
+		//TEXT
+		if (focusOn == "emc") {
+			months.append("text")
+				.attr({
+					class: "detailText",
+					"x": xS.rangeBand()/3*2+xS.rangeBand()/6,
+					"y": function (d) {return emcYS(d.emc[0])},
+					"fill": "gray",
+					"text-anchor": "middle", dy:"-.7em",
+					"font-size": 11, opacity: 0.01
+				})
+				.text(function (d) {return d3.round(d.emc[0], 1)+"%"})
+				.transition().delay(250)
+				.attr("opacity", 1)
+			months.append("text")
+				.attr({
+					class: "detailText",
+					"x": xS.rangeBand()/3*2+xS.rangeBand()/6,
+					"y": function (d) {return emcYS(d.emc[1])},
+					"fill": "gray",
+					"text-anchor": "middle", dy:"1.35em",
+					"font-size": 11, opacity: 0.01
+				})
+				.text(function (d) {return d3.round(d.emc[1], 1)+"%"})
+				.transition().delay(250)
+				.attr("opacity", 1)
+		}
+		if (focusOn == "temp") {
+			months.append("text")
+				.attr({
+					class: "detailText",
+					"x": xS.rangeBand()/3*0+xS.rangeBand()/6,
+					"y": function (d) {return tempYS(d.t[0])},
+					"fill": "red",
+					"text-anchor": "middle", dy:"-.7em",
+					"font-size": 11, opacity: 0.01
+				})
+				.text(function (d) {return d3.round(d.t[0], 1)+"º"})
+				.transition().delay(250)
+				.attr("opacity", 1)
+			months.append("text")
+				.attr({
+					class: "detailText",
+					"x": xS.rangeBand()/3*0+xS.rangeBand()/6,
+					"y": function (d) {return tempYS(d.t[1])},
+					"fill": "red",
+					"text-anchor": "middle", dy:"1.35em",
+					"font-size": 11, opacity: 0.01
+				})
+				.text(function (d) {return d3.round(d.t[1], 1)+"º"})
+				.transition().delay(250)
+				.attr("opacity", 1)
+		}
+		if (focusOn == "hum") {
+			months.append("text")
+				.attr({
+					class: "detailText",
+					"x": xS.rangeBand()/3*1+xS.rangeBand()/6,
+					"y": function (d) {return humYS(d.h[0])},
+					"fill": "blue",
+					"text-anchor": "middle", dy:"-.7em",
+					"font-size": 11, opacity: 0.01
+				})
+				.text(function (d) {return d3.round(d.h[0], 1)+"%"})
+				.transition().delay(250)
+				.attr("opacity", 1)
+			months.append("text")
+				.attr({
+					class: "detailText",
+					"x": xS.rangeBand()/3*1+xS.rangeBand()/6,
+					"y": function (d) {return humYS(d.h[1])},
+					"fill": "blue",
+					"text-anchor": "middle", dy:"1.35em",
+					"font-size": 11, opacity: 0.01
+				})
+				.text(function (d) {return d3.round(d.h[1], 1)+"%"})
+				.transition().delay(250)
+				.attr("opacity", 1)
+		}
 
 	}
 	chart2.mainView.focusHover = function (focusOn2) {
 
+		months.selectAll(".detailText").remove()
+
 		////////////
 		//HOVER
 		months.select(".v-e-tempHover")
@@ -355,10 +503,93 @@ chart2.mainView = function (rawSelection) {
 					if (focusOn2 == "emc" || focusOn2 == "all") {return 1}
 						else {return .1}
 				}}).transition()
+
+		//TEXT
+		if (focusOn2 == "emc") {
+			months.append("text")
+				.attr({
+					class: "detailText",
+					"x": xS.rangeBand()/3*2+xS.rangeBand()/6,
+					"y": function (d) {return emcYS(d.emc[0])},
+					"fill": "gray",
+					"text-anchor": "middle", dy:"-.7em",
+					"font-size": 11, opacity: 0.01
+				})
+				.text(function (d) {return d3.round(d.emc[0], 1)+"%"})
+				.attr("opacity", 1)
+				.transition()
+			months.append("text")
+				.attr({
+					class: "detailText",
+					"x": xS.rangeBand()/3*2+xS.rangeBand()/6,
+					"y": function (d) {return emcYS(d.emc[1])},
+					"fill": "gray",
+					"text-anchor": "middle", dy:"1.35em",
+					"font-size": 11, opacity: 0.01
+				})
+				.text(function (d) {return d3.round(d.emc[1], 1)+"%"})
+				.attr("opacity", 1)
+				.transition()
+		}
+		if (focusOn2 == "temp") {
+			months.append("text")
+				.attr({
+					class: "detailText",
+					"x": xS.rangeBand()/3*0+xS.rangeBand()/6,
+					"y": function (d) {return tempYS(d.t[0])},
+					"fill": "red",
+					"text-anchor": "middle", dy:"-.7em",
+					"font-size": 11, opacity: 0.01
+				})
+				.text(function (d) {return d3.round(d.t[0], 1)+"º"})
+				.attr("opacity", 1)
+				.transition()
+			months.append("text")
+				.attr({
+					class: "detailText",
+					"x": xS.rangeBand()/3*0+xS.rangeBand()/6,
+					"y": function (d) {return tempYS(d.t[1])},
+					"fill": "red",
+					"text-anchor": "middle", dy:"1.35em",
+					"font-size": 11, opacity: 0.01
+				})
+				.text(function (d) {return d3.round(d.t[1], 1)+"º"})
+				.attr("opacity", 1)
+				.transition()
+		}
+		if (focusOn2 == "hum") {
+			months.append("text")
+				.attr({
+					class: "detailText",
+					"x": xS.rangeBand()/3*1+xS.rangeBand()/6,
+					"y": function (d) {return humYS(d.h[0])},
+					"fill": "blue",
+					"text-anchor": "middle", dy:"-.7em",
+					"font-size": 11, opacity: 0.01
+				})
+				.text(function (d) {return d3.round(d.h[0], 1)+"%"})
+				.attr("opacity", 1)
+				.transition()
+			months.append("text")
+				.attr({
+					class: "detailText",
+					"x": xS.rangeBand()/3*1+xS.rangeBand()/6,
+					"y": function (d) {return humYS(d.h[1])},
+					"fill": "blue",
+					"text-anchor": "middle", dy:"1.35em",
+					"font-size": 11, opacity: 0.01
+				})
+				.text(function (d) {return d3.round(d.h[1], 1)+"%"})
+				.attr("opacity", 1)
+				.transition()
+		}
+
 	}
 
 	chart2.mainView.focusOut = function () {
 
+		months.selectAll(".detailText").remove()
+
 		////////////
 		//HOVER
 		months.select(".v-e-tempHover")
@@ -427,6 +658,110 @@ chart2.mainView = function (rawSelection) {
 					if (focusOn == "emc" || focusOn == "all") {return 1}
 						else {return .1}
 				}})
+
+		//TEXT
+		if (focusOn == "emc") {
+			months.append("text")
+				.attr({
+					class: "detailText",
+					"x": xS.rangeBand()/3*2+xS.rangeBand()/6,
+					"y": function (d) {return emcYS(d.emc[0])},
+					"fill": "gray",
+					"text-anchor": "middle", dy:"-.7em",
+					"font-size": 11, 
+					opacity: function () {
+						if (focusOn == "emc") {return 1} 
+							else{return 0.01};
+					}
+				})
+				.text(function (d) {return d3.round(d.emc[0], 1)+"%"})
+				.transition().delay(0)
+				.attr("opacity", 1)
+			months.append("text")
+				.attr({
+					class: "detailText",
+					"x": xS.rangeBand()/3*2+xS.rangeBand()/6,
+					"y": function (d) {return emcYS(d.emc[1])},
+					"fill": "gray",
+					"text-anchor": "middle", dy:"1.35em",
+					"font-size": 11, 
+					opacity: function () {
+						if (focusOn == "emc") {return 1} 
+							else{return 0.01};
+					}
+				})
+				.text(function (d) {return d3.round(d.emc[1], 1)+"%"})
+				.transition().delay(0)
+				.attr("opacity", 1)
+		}
+		if (focusOn == "temp") {
+			months.append("text")
+				.attr({
+					class: "detailText",
+					"x": xS.rangeBand()/3*0+xS.rangeBand()/6,
+					"y": function (d) {return tempYS(d.t[0])},
+					"fill": "red",
+					"text-anchor": "middle", dy:"-.7em",
+					"font-size": 11, 
+					opacity: function () {
+						if (focusOn == "temp") {return 1} 
+							else{return 0.01};
+					}
+				})
+				.text(function (d) {return d3.round(d.t[0], 1)+"º"})
+				.transition().delay(0)
+				.attr("opacity", 1)
+			months.append("text")
+				.attr({
+					class: "detailText",
+					"x": xS.rangeBand()/3*0+xS.rangeBand()/6,
+					"y": function (d) {return tempYS(d.t[1])},
+					"fill": "red",
+					"text-anchor": "middle", dy:"1.35em",
+					"font-size": 11, 
+					opacity: function () {
+						if (focusOn == "temp") {return 1} 
+							else{return 0.01};
+					}
+				})
+				.text(function (d) {return d3.round(d.t[1], 1)+"º"})
+				.transition().delay(0)
+				.attr("opacity", 1)
+		}
+		if (focusOn == "hum") {
+			months.append("text")
+				.attr({
+					class: "detailText",
+					"x": xS.rangeBand()/3*1+xS.rangeBand()/6,
+					"y": function (d) {return humYS(d.h[0])},
+					"fill": "blue",
+					"text-anchor": "middle", dy:"-.7em",
+					"font-size": 11, 
+					opacity: function () {
+						if (focusOn == "hum") {return 1} 
+							else{return 0.01};
+					}
+				})
+				.text(function (d) {return d3.round(d.h[0], 1)+"%"})
+				.transition().delay(0)
+				.attr("opacity", 1)
+			months.append("text")
+				.attr({
+					class: "detailText",
+					"x": xS.rangeBand()/3*1+xS.rangeBand()/6,
+					"y": function (d) {return humYS(d.h[1])},
+					"fill": "blue",
+					"text-anchor": "middle", dy:"1.35em",
+					"font-size": 11, 
+					opacity: function () {
+						if (focusOn == "hum") {return 1} 
+							else{return 0.01};
+					}
+				})
+				.text(function (d) {return d3.round(d.h[1], 1)+"%"})
+				.transition().delay(0)
+				.attr("opacity", 1)
+		}
 	}
 }
 

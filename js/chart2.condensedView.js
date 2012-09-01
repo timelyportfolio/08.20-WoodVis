@@ -14,17 +14,17 @@ chart2.condensedView = function (rawSelection) {
 	var h = parseFloat(sel.style("height"))
 	// var yS = d3.scale.linear().domain(chart1Amplitude).range([0,h])
 	var xSGroups = d3.scale.ordinal()
-		.rangeRoundBands([0,w], 0.001, 0)
+		.rangeBands([0,w], 0.2, 0)
 		.domain(citiesNames)
 	var xS = d3.scale.ordinal()
-		.rangeRoundBands([0,xSGroups.rangeBand()], 0, 0)
+		.rangeBands([0,xSGroups.rangeBand()], 0, 0)
 		.domain(monthNames)
 
-	var tempYS = d3.scale.linear().domain([40,-10])
+	var tempYS = d3.scale.linear().domain(tempAmpl)
 		.range([0+margins[0], h-margins[2]])
-	var humYS = d3.scale.linear().domain([100,0])
+	var humYS = d3.scale.linear().domain(humAmpl)
 		.range([0+margins[0], h-margins[2]])
-	var emcYS = d3.scale.linear().domain([30,5])
+	var emcYS = d3.scale.linear().domain(emcAmpl)
 		.range([0+margins[0], h-margins[2]])
 
 	sel.selectAll("svg").data([1])
@@ -41,41 +41,57 @@ chart2.condensedView = function (rawSelection) {
 		})
 		.style("cursor", "pointer")
 		.on("mouseover", function (d) {
-			var red = true
-			// chart1.cityView.setRed(d.name)
-			var sel = d3.select(this).selectAll(".v-e-monthBlock")
-				.attr("fill", "red")
-			// chart1.varView.addRed(false, d)
+			var sel = d3.select(this).selectAll("circle")
+				.attr("fill", "gray")
+
 			if (d.name == selectedCity) {
 				sel.attr("fill", "black")
-				// chart1.varView.removeRed()
-				red = false
 			} 
 			
-			// chart1.varView.removeLabel()
-			// chart1.labelVarView.d = undefined
-			// chart1.labelVarView(false, false, d.name, false, red)
+			chart2.cityView.setSelection(d.name)
+			chart2.labelMainView.cityHover(d.name)
+			chart2.mainView.cityHover(d.name)
 		})
 		.on("mouseout", function (d) {
-			// chart1.varView.removeRed()
-			var sel = d3.select(this)
-			var red = sel.selectAll(".v-e-monthBlock")
-				.attr("fill", "gray")
+			var sel = d3.select(this).selectAll("circle")
+				.attr("fill", "white")
+
 			if (d.name == selectedCity) {
-				red.attr("fill", "black")
-			}
-			// chart1.cityView.unsetRed()
-			// chart1.labelVarView.d = undefined
-			// chart1.labelVarView()
+				sel.attr("fill", "black")
+			} 
+
+			chart2.cityView.setSelection()
+			chart2.labelMainView.removeCityHover()
+			chart2.mainView.cityRemoveHover()
+
 		})
 		.on("click", function (d) {
+			
 			selectedCity = d.name
-			// chart1.varView.removeLabel()
-			// chart1.varView.update()
+			//Chart1
+			//City
+			chart1.cityView.setSelection()
+			//Label
+			chart1.labelVarView.hoverOff()
+			//Var
+			chart1.varView.removeLabel()
+			chart1.varView.hoverOff()
+			//Condensed
+			chart1.condensedView.setSelection()
 
-			// chart1.labelVarView.clickTransition()
-			// chart1.cityView.setBlack()
-			// chart1.condensedView.setBlack()
+			//Chart2
+			chart2.labelMainView.removeCityHover()
+			chart2.mainView.cityHover(d.name)
+			chart2.mainView.cityRemoveHover()
+			chart2.condensedView.setSelection()
+			chart2.cityView.setSelection(d.name)
+
+			//Chart3
+			chart3.mainView.hoverInfoOff()
+			chart3.labelMainView.hoverOff() 
+			chart3.condensedView.setSelection()
+			chart3.cityView.setSelection(d.name)
+
 		})
 	groups.append("rect")
 		.attr({
@@ -143,6 +159,29 @@ chart2.condensedView = function (rawSelection) {
 				.attr("fill", "black")
 		};
 	})
+
+	chart2.condensedView.setSelection = function (cityString) {
+
+		groups.selectAll("circle")
+			.attr("class", "")
+			.attr("fill", "white")
+
+		groups.each(function (d,i){
+			if (d.name == cityString) {
+				d3.select(this).selectAll("circle")
+					.classed("gray", true)
+					.attr("fill", "gray")
+			}
+			if (d.name == selectedCity) {
+				d3.select(this).selectAll("circle")
+					.classed("black", true)
+					.attr("fill", "black")
+			}
+		})
+
+
+	}
+
 }
 
 

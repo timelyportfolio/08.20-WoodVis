@@ -8,15 +8,18 @@ var monthNames = ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP",
 var selectedWood = "Pouteria pachycarpa"
 var selectedCity = "Curitiba"
 var selectedVariation = "varTangencial"
-var chart1Amplitude = [5,-5] //[-1,10] //
-var chart3Amplitude = [101,90] 
+var chart1Amplitude = [5.7,-5.7] //[-1,10] //
+var chart3Amplitude = [101,89] 
+var tempAmpl = [35,-14]
+var humAmpl = [100,0]
+var emcAmpl = [30,3]
 
 var focusOn = "emc"
 
 var layoutData = [
 	{section: "chart1",
 	child: [
-		{class: "v-row", padding: [0,0,0,0], 
+		{class: "v-row", padding: [0,14,0,14], 
 		rect: [0,0,containerW,200],
 		child:[
 			{class: "v-cell", flex:1, padding: [0,0,0,0]},
@@ -24,9 +27,9 @@ var layoutData = [
 			{class: "v-cell", flex:3.2, padding: [20,30,0,5],
 			funCall: chart1.title},
 			{class: "v-cell", flex:1, padding: [30,0,0,0],
-			funCall: chart1.titleDescription}
+			funCall: "chart1.titleDescription"}
 		]},
-		{class: "v-row", padding: [0,0,0,0], 
+		{class: "v-row", padding: [0,14,0,14], 
 		rect: [0,0,containerW,25],
 		child:[
 			{class: "v-cell", flex:1, padding: [0,0,0,0],
@@ -37,7 +40,7 @@ var layoutData = [
 			{class: "v-cell", flex:1, padding: [0,0,0,0],
 			funCall: chart1.woodNameLabel}
 		]},
-		{class: "v-row", padding: [0,0,0,0], 
+		{class: "v-row", padding: [0,14,0,14], 
 		rect: [0,0,containerW,400],
 		child:[
 			{class: "v-cell", flex:1, padding: [0,0,0,0],
@@ -49,7 +52,7 @@ var layoutData = [
 			{class: "v-cell", flex:1, padding: [0,0,0,0],
 			funCall: chart1.woodView}
 		]},
-		{class: "v-row", padding: [0,0,0,0], 
+		{class: "v-row", padding: [0,14,0,14], 
 		rect: [0,0,containerW,150],
 		child:[
 			{class: "v-cell", flex:1, padding: [20,0,0,0],
@@ -59,7 +62,7 @@ var layoutData = [
 
 	{section: "chart2",
 	child: [
-		{class: "v-row", padding: [0,0,0,0], 
+		{class: "v-row", padding: [0,14,0,14], 
 		rect: [0,0,containerW,240],
 		child:[
 			{class: "v-cell", flex:1, padding: [0,0,0,0]},
@@ -67,7 +70,7 @@ var layoutData = [
 			{class: "v-cell", flex:3.2, padding: [20,30,10,5],
 			funCall: chart2.title}
 		]},
-		{class: "v-row", padding: [0,0,20,0], 
+		{class: "v-row", padding: [0,14,20,14], 
 		rect: [0,0,containerW,25],
 		child:[
 			{class: "v-cell", flex:1, padding: [5,0,0,0],
@@ -77,7 +80,7 @@ var layoutData = [
 			{class: "v-cell", flex:3.2, padding: [0,0,0,0],
 			funCall: chart2.selectFocusOn}
 		]},
-		{class: "v-row", padding: [0,0,0,0], 
+		{class: "v-row", padding: [0,14,0,14], 
 		rect: [0,0,containerW,400],
 		child:[
 			{class: "v-cell", flex:1, padding: [0,0,0,0],
@@ -87,7 +90,7 @@ var layoutData = [
 			{class: "v-cell", flex:3.2, padding: [0,0,0,0],
 			funCall: chart2.mainView}
 		]},
-		{class: "v-row", padding: [0,0,0,0], 
+		{class: "v-row", padding: [0,14,0,14], 
 		rect: [0,0,containerW,150],
 		child:[
 			{class: "v-cell", flex:1, padding: [20,0,0,0],
@@ -97,7 +100,7 @@ var layoutData = [
 
 	{section: "chart3",
 	child: [
-		{class: "v-row", padding: [0,0,0,0], 
+		{class: "v-row", padding: [0,14,0,14], 
 		rect: [0,0,containerW,200],
 		child:[
 			{class: "v-cell", flex:1, padding: [0,0,0,0]},
@@ -107,7 +110,7 @@ var layoutData = [
 			{class: "v-cell", flex:1, padding: [30,0,0,0],
 			funCall: "chart1.titleDescription"}
 		]},
-		{class: "v-row", padding: [0,0,0,0], 
+		{class: "v-row", padding: [0,14,0,14], 
 		rect: [0,0,containerW,25],
 		child:[
 			{class: "v-cell", flex:1, padding: [0,0,0,0],
@@ -118,7 +121,7 @@ var layoutData = [
 			{class: "v-cell", flex:1, padding: [0,0,0,0],
 			funCall: chart3.woodNameLabel}
 		]},
-		{class: "v-row", padding: [0,0,0,0], 
+		{class: "v-row", padding: [0,14,0,14], 
 		rect: [0,0,containerW,400],
 		child:[
 			{class: "v-cell", flex:1, padding: [0,0,0,0],
@@ -130,7 +133,7 @@ var layoutData = [
 			{class: "v-cell", flex:1, padding: [0,0,0,0],
 			funCall: chart3.woodView}
 		]},
-		{class: "v-row", padding: [0,0,0,0], 
+		{class: "v-row", padding: [0,14,0,14], 
 		rect: [0,0,containerW,150],
 		child:[
 			{class: "v-cell", flex:1, padding: [20,0,0,0],

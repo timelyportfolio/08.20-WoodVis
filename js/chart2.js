@@ -6,13 +6,13 @@ chart2.title = function (rawSelection) {
 		height: "auto"
 	})
 	sel.append("p")
-		.html("<span style=\"color:red\">Temperature</span>, <span style=\"color:blue\">Humidity</span> and <span style=\"color:gray\">Equilibrium Moisture Content (EMC)</span>")
+		.html("<span style=\"color:red\">Temperature</span>, <span style=\"color:blue\">Humidity</span> and <span style=\"color:gray\"> Moisture Content (MC)</span>")
 		.style({
 			"text-align": "left",
 			padding: "0 0 20px",
 			"margin": "0px",
-			"font-size": "40px",
-			"font-weight": "bold"
+			"font-size": "40px"
+			// "font-weight": "bold"
 		})
 }
 
@@ -60,11 +60,8 @@ chart2.cityView = function (rawSelection) {
 			})
 			chart2.labelMainView.cityHover(d.name)
 			chart2.mainView.cityHover(d.name)
-			// chart1.varView.removeLabel()
-			// chart1.labelVarView.d = undefined
-			// chart1.labelVarView(false, false, d.name, false, red)
+			chart2.condensedView.setSelection(d.name)
 
-			// chart1.condensedView.setRed(d.name)
 		})
 		.on("mouseout", function (d,i) {
 			var sel = d3.select(this)
@@ -80,21 +77,39 @@ chart2.cityView = function (rawSelection) {
 			})
 			chart2.labelMainView.removeCityHover()
 			chart2.mainView.cityRemoveHover()
-			// chart1.varView.removeRed()
-			// chart1.condensedView.unsetRed()
-			// chart1.labelVarView.d = undefined
-			// chart1.labelVarView()
+			chart2.condensedView.setSelection()
+
 		})
 		.on("click", function (d,i){
 			selectedCity = d.name
+
+			//Chart1
+			//City
+			chart1.cityView.setSelection()
+			//Label
+			chart1.labelVarView.hoverOff()
+			//Var
+			chart1.varView.removeLabel()
+			chart1.varView.hoverOff()
+			//Condensed
+			chart1.condensedView.setSelection()
+
+			//Chart2
 			chart2.labelMainView.removeCityHover()
-			chart2.mainView.cityRemoveHover() 
-			// chart1.varView.removeLabel()
-			// chart1.varView.update()
+			chart2.mainView.cityHover(d.name)
+			chart2.mainView.cityRemoveHover()
+			chart2.condensedView.setSelection()
+			chart2.cityView.setSelection(d.name)
 
-			// chart1.labelVarView.clickTransition()
+			//Chart3
+			chart3.mainView.hoverInfoOff()
+			chart3.labelMainView.hoverOff() 
+			chart3.condensedView.setSelection()
+			chart3.cityView.setSelection(d.name)
 
-			d3.select(".v-e-cSelected")
+
+
+			sel.selectAll(".v-e-cSelected")
 				.classed("v-e-cSelected", false)
 				.style("background", "white")
 				.style("color", "black")
@@ -102,8 +117,6 @@ chart2.cityView = function (rawSelection) {
 			d3.select(this).classed("v-e-cSelected", true)
 				.style("background", "black")
 				.style("color", "white")
-
-			// chart1.condensedView.setBlack()
 		})
 
 	cities.append("p")
@@ -116,6 +129,31 @@ chart2.cityView = function (rawSelection) {
 			return d.name
 			//return d3.format("02d")(i+1)+". \t"+d.name
 		})
+
+	chart2.cityView.setSelection = function (cityString) {
+
+		sel.selectAll(".v-e-cSelected, .gray")
+			.attr("class", "")
+			.style("background", "white")
+			.style("color", "black")
+
+		cities.each(function (d,i){
+			if (d.name == cityString) {
+				d3.select(this)
+					.attr("class", "gray")
+					.style("background", "gray")
+					.style("color", "white")
+			}
+			if (d.name == selectedCity) {
+				d3.select(this)
+					.attr("class", "v-e-cSelected")
+					.style("background", "black")
+					.style("color", "white")
+			}
+		})
+
+
+	}
 }
 
 chart2.labelTitle = function (rawSelection) {
@@ -139,7 +177,7 @@ chart2.selectFocusOn = function (rawSelection) {
 	var woodTypeData = [
 		{name: "Temperature", type: "temp", color: "red"},
 		{name: "Humidity", type: "hum", color: "blue"},
-		{name: "EMC", type: "emc", color: "gray"}
+		{name: "MC", type: "emc", color: "gray"}
 	]
 	var buttons = sel.selectAll(".v-woodButton").data(woodTypeData)
 		.enter().append("div")

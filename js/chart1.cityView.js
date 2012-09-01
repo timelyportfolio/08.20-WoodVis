@@ -10,7 +10,6 @@ chart1.cityView = function (rawSelection) {
 			"margin": "0px 0px 0 0px",
 			overflow: "auto"
 		})
-
 		.selectAll("div").data(data.cities)
 	  .enter().append("div")
 		.style({
@@ -20,66 +19,78 @@ chart1.cityView = function (rawSelection) {
 		}).each(function (d,i){
 			var sel = d3.select(this)
 			if (d.name == selectedCity) {
-				sel.classed("v-e-cSelected", true)
+				sel.attr("class", "v-e-cSelected")
 					.style("background", "black")
 					.style("color", "white")
 			}
 		})
 		.on("mouseover", function (d,i) {
-			var red = true
 			var sel = d3.select(this)
 			sel.style("background", "red")
 				.style("color", "white")
 			
-			chart1.varView.addRed(false, d)
-			sel.each(function (d,i){
-				var sel = d3.select(this)
-				if (d.name == selectedCity) {
-					sel.style("background", "black")
-					chart1.varView.removeRed()
-					red = false
-				}
-			})
+			if (d.name == selectedCity) {
+				sel.style("background", "black")
+					.style("color", "white")
+					.attr("class", "v-e-cSelected")
+			}
+			
+			//Chart1
+			//CityView
+			//LabelView
+			chart1.labelVarView.hoverOn(d.name, false, false)
+			//VarView
 			chart1.varView.removeLabel()
-			chart1.labelVarView.d = undefined
-			chart1.labelVarView(false, false, d.name, false, red)
+			chart1.varView.hoverOn(d.name, false, false)
+			//CondensedView
+			chart1.condensedView.setSelection(d.name)
 
-			chart1.condensedView.setRed(d.name)
 		})
 		.on("mouseout", function (d,i) {
 			var sel = d3.select(this)
 			sel.style("background", "white")
 				.style("color", "black")
-				.style("font-style", "normal")
-			sel.each(function (d,i){
-				var sel = d3.select(this)
-				if (d.name == selectedCity) {
-					sel.style("background", "black")
-						.style("color", "white")
-				}
-			})
-			chart1.varView.removeRed()
-			chart1.condensedView.unsetRed()
-			chart1.labelVarView.d = undefined
-			chart1.labelVarView()
+			
+			if (d.name == selectedCity) {
+				sel.style("background", "black")
+					.style("color", "white")
+					.attr("class", "v-e-cSelected")
+			}
+
+			//Chart1
+			//LabelView
+			chart1.labelVarView.hoverOff()
+			//VarView
+			chart1.varView.hoverOff()
+			//CondensedView
+			chart1.condensedView.setSelection()
 		})
 		.on("click", function (d,i){
 			selectedCity = d.name
+			//Chart1
+			//City
+			chart1.cityView.setSelection()
+			//Label
+			chart1.labelVarView.hoverOff()
+			//Var
 			chart1.varView.removeLabel()
-			chart1.varView.update()
+			chart1.varView.hoverOff()
+			//Condensed
+			chart1.condensedView.setSelection()
 
-			chart1.labelVarView.clickTransition()
+			//Chart2
+			chart2.labelMainView.removeCityHover()
+			chart2.mainView.cityHover(d.name)
+			chart2.mainView.cityRemoveHover()
+			chart2.condensedView.setSelection()
+			chart2.cityView.setSelection()
 
-			d3.select(".v-e-cSelected")
-				.classed("v-e-cSelected", false)
-				.style("background", "white")
-				.style("color", "black")
+			//Chart3
+			chart3.mainView.hoverInfoOff()
+			chart3.labelMainView.hoverOff() 
+			chart3.condensedView.setSelection()
+			chart3.cityView.setSelection()
 
-			d3.select(this).classed("v-e-cSelected", true)
-				.style("background", "black")
-				.style("color", "white")
-
-			chart1.condensedView.setBlack()
 		})
 
 	cities.append("p")
@@ -92,47 +103,30 @@ chart1.cityView = function (rawSelection) {
 			return d.name
 			//return d3.format("02d")(i+1)+". \t"+d.name
 		})
-}
-chart1.cityView.setRed = function (cityName) {
-	var sel = d3.select(chart1.cityView.rawSelection)
-	var groups = sel.selectAll("div")
-	groups.each(function (d,i) {
-		var sel = d3.select(this)
-		if (d.name == cityName && d.name != selectedCity) {
-			sel.classed("v-e-red", true)
-				.style({
-					background: "red",
-					color: "white"
-				})
-		};
-	})
-}
-chart1.cityView.unsetRed = function () {
-	var sel = d3.select(chart1.cityView.rawSelection)
-	var red = sel.selectAll(".v-e-red")
-		.classed("v-e-red", false)
-		.style({
-			"background": "white",
-			color: "black"
-		})
-	if (red.classed("v-e-cSelected")) {
-		red.style("background", "black")
-			.style("color", "white")
-	} else {red.style("fill", "white")};	
-}
-chart1.cityView.setBlack = function () {
-	var sel = d3.select(chart1.cityView.rawSelection)
-		.select("div")
-	d3.select(".v-e-cSelected")
-		.classed("v-e-cSelected", false)
-		.style("background", "white")
+
+	chart1.cityView.setSelection = function (cityString) {
+
+		sel.selectAll(".v-e-cSelected, .red")
+			.attr("class", "")
+			.style("background", "white")
 			.style("color", "black")
-	sel.selectAll("div").each(function (d) {
-		if (d.name == selectedCity) {
-			d3.select(this).classed("v-e-cSelected", true)
-				.style("background", "black")
-				.style("color", "white")
-		}
-	})
-	
+
+		cities.each(function (d,i){
+			if (d.name == cityString) {
+				d3.select(this)
+					.attr("class", "red")
+					.style("background", "red")
+					.style("color", "white")
+			}
+			if (d.name == selectedCity) {
+				d3.select(this)
+					.attr("class", "v-e-cSelected")
+					.style("background", "black")
+					.style("color", "white")
+			}
+		})
+
+
+	}
+
 }
