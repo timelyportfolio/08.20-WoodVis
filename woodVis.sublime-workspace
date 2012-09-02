@@ -4,6 +4,22 @@
 		"selected_items":
 		[
 			[
+				"load",
+				"loadData"
+			],
+			[
+				"sele",
+				"selectAll	.selectAll"
+			],
+			[
+				"margi",
+				"margin-top"
+			],
+			[
+				"marg",
+				"margin-left	zen:css_properties"
+			],
+			[
 				"min-",
 				"min-width"
 			],
@@ -86,10 +102,6 @@
 			[
 				"trans",
 				"transition"
-			],
-			[
-				"sele",
-				"select	.select"
 			],
 			[
 				"txtLimit",
@@ -435,7 +447,7 @@
 			"file": "js/layout.js",
 			"settings":
 			{
-				"buffer_size": 5930,
+				"buffer_size": 6063,
 				"line_ending": "Unix"
 			}
 		},
@@ -443,7 +455,7 @@
 			"file": "index.html",
 			"settings":
 			{
-				"buffer_size": 7041,
+				"buffer_size": 9110,
 				"line_ending": "Unix"
 			}
 		},
@@ -451,31 +463,23 @@
 			"file": "wood.css",
 			"settings":
 			{
-				"buffer_size": 2091,
+				"buffer_size": 2602,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "js/chart1.varView.js",
+			"contents": "// @code_url http://www.woodchanges.com/js/lib/d3.v2.js\n\n// @code_url http://www.woodchanges.com/js/dataTransform.js\n// @code_url http://www.woodchanges.com/js/chart1.js\n// @code_url http://www.woodchanges.com/js/chart1.cityView.js\n// @code_url http://www.woodchanges.com/js/chart1.condensedView.js\n// @code_url http://www.woodchanges.com/js/chart1.labelVarView.js\n// @code_url http://www.woodchanges.com/js/chart1.varView.js\n// @code_url http://www.woodchanges.com/js/chart2.js\n// @code_url http://www.woodchanges.com/js/chart2.mainView.js\n// @code_url http://www.woodchanges.com/js/chart2.labelMainView.js\n// @code_url http://www.woodchanges.com/js/chart2.condensedView.js\n// @code_url http://www.woodchanges.com/js/chart3.js\n// @code_url http://www.woodchanges.com/js/chart3.cityView.js\n// @code_url http://www.woodchanges.com/js/chart3.mainView.js\n// @code_url http://www.woodchanges.com/js/chart3.labelMainView.js\n// @code_url http://www.woodchanges.com/js/chart3.condensedView.js\n// @code_url http://www.woodchanges.com/js/layout.js",
 			"settings":
 			{
-				"buffer_size": 7961,
+				"buffer_size": 1038,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "js/chart1.condensedView.js",
+			"file": "js/chart3.js",
 			"settings":
 			{
-				"buffer_size": 5719,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "js/chart2.condensedView.js",
-			"settings":
-			{
-				"buffer_size": 4576,
+				"buffer_size": 7177,
 				"line_ending": "Unix"
 			}
 		}
@@ -483,9 +487,29 @@
 	"build_system": "",
 	"command_palette":
 	{
-		"height": 375.0,
+		"height": 93.0,
 		"selected_items":
 		[
+			[
+				"packdis",
+				"Package Control: Discover Packages"
+			],
+			[
+				"pack",
+				"Package Control: Install Package"
+			],
+			[
+				"pa",
+				"Package Control: Remove Package"
+			],
+			[
+				"packin",
+				"Package Control: Install Package"
+			],
+			[
+				"pac",
+				"Package Control: List Packages"
+			],
 			[
 				"zen",
 				"Zen Coding: Zen as you type"
@@ -493,10 +517,6 @@
 			[
 				"packdisc",
 				"Package Control: Discover Packages"
-			],
-			[
-				"packin",
-				"Package Control: Install Package"
 			],
 			[
 				"synjs",
@@ -508,10 +528,6 @@
 			],
 			[
 				"packins",
-				"Package Control: Install Package"
-			],
-			[
-				"pack",
 				"Package Control: Install Package"
 			],
 			[
@@ -555,10 +571,6 @@
 				"Set Syntax: Markdown"
 			],
 			[
-				"packdis",
-				"Package Control: Discover Packages"
-			],
-			[
 				"synmr",
 				"Set Syntax: Markdown"
 			],
@@ -575,10 +587,6 @@
 				"Package Control: Disable Package"
 			],
 			[
-				"pa",
-				"Package Control: Enable Package"
-			],
-			[
 				"sni",
 				"Snippet: Lorem ipsum"
 			],
@@ -589,10 +597,6 @@
 			[
 				"scop",
 				"Scope Hunter: Show Scope Under Cursor(s)"
-			],
-			[
-				"pac",
-				"Package Control: Install Package"
 			],
 			[
 				"packain",
@@ -659,7 +663,7 @@
 				"Snippet: html"
 			]
 		],
-		"width": 558.0
+		"width": 453.0
 	},
 	"console":
 	{
@@ -676,25 +680,26 @@
 	},
 	"file_history":
 	[
-		"/Users/Luis/Documents/Projetos/2012/08.20 WoodVis/js/chart2.condensedView.js",
+		"/Users/Luis/Documents/Projetos/2012/08.20 WoodVis/sftp-config.json",
+		"/Users/Luis/Documents/Projetos/2012/08.20 WoodVis/js/chart3.js",
+		"/Users/Luis/Documents/Projetos/2012/08.20 WoodVis/js/chart1.js",
+		"/Users/Luis/Documents/Projetos/2012/08.20 WoodVis/js/chart1.varView.js",
 		"/Users/Luis/Documents/Projetos/2012/08.20 WoodVis/js/chart2.mainView.js",
+		"/Users/Luis/Documents/Projetos/2012/08.20 WoodVis/js/chart3.labelMainView.js",
+		"/Users/Luis/Documents/Projetos/2012/08.20 WoodVis/js/chart3.mainView.js",
+		"/Users/Luis/Documents/Projetos/2012/08.20 WoodVis/wood changes.md",
+		"/Users/Luis/Documents/Projetos/2012/08.20 WoodVis/wood.css",
+		"/Users/Luis/Documents/Projetos/2012/08.20 WoodVis/js/chart2.js",
+		"/Users/Luis/Documents/Projetos/2012/08.20 WoodVis/js/chart1.condensedView.js",
+		"/Users/Luis/Documents/Projetos/2012/08.20 WoodVis/js/chart2.condensedView.js",
 		"/Users/Luis/Documents/Projetos/2012/08.20 WoodVis/js/chart2.labelMainView.js",
 		"/Users/Luis/Documents/Projetos/2012/08.20 WoodVis/js/chart3.condensedView.js",
-		"/Users/Luis/Documents/Projetos/2012/08.20 WoodVis/js/chart1.varView.js",
 		"/Users/Luis/Documents/Projetos/2012/08.20 WoodVis/js/chart1.labelVarView.js",
 		"/Users/Luis/Documents/Projetos/2012/08.20 WoodVis/woodWorld.json",
-		"/Users/Luis/Documents/Projetos/2012/08.20 WoodVis/wood.css",
-		"/Users/Luis/Documents/Projetos/2012/08.20 WoodVis/wood changes.md",
 		"/Users/Luis/Documents/Projetos/2012/08.20 WoodVis/js/layout.js",
-		"/Users/Luis/Documents/Projetos/2012/08.20 WoodVis/js/chart1.js",
-		"/Users/Luis/Documents/Projetos/2012/08.20 WoodVis/js/chart2.js",
-		"/Users/Luis/Documents/Projetos/2012/08.20 WoodVis/js/chart3.js",
 		"/Users/Luis/Documents/Projetos/2012/08.20 WoodVis/js/chart1.cityView.js",
-		"/Users/Luis/Documents/Projetos/2012/08.20 WoodVis/js/chart1.condensedView.js",
 		"/Users/Luis/Documents/Projetos/2012/08.20 WoodVis/index.html",
 		"/Users/Luis/Documents/Projetos/2012/08.20 WoodVis/js/chart3.cityView.js",
-		"/Users/Luis/Documents/Projetos/2012/08.20 WoodVis/js/chart3.mainView.js",
-		"/Users/Luis/Documents/Projetos/2012/08.20 WoodVis/js/chart3.labelMainView.js",
 		"/Users/Luis/Documents/Projetos/2012/08.20 WoodVis/js/dataTransform.js",
 		"/Users/Luis/Documents/Projetos/2012/08.20 WoodVis/wood.html",
 		"/Users/Luis/Library/Application Support/Sublime Text 2/Packages/User/Preferences.sublime-settings",
@@ -782,6 +787,15 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"float:",
+			"{return d.class",
+			"child",
+			";",
+			"class:",
+			"class",
+			"div",
+			"\\[\\d",
+			"\\(\\d",
 			"\\(\\d\\)",
 			"Band",
 			"pouter",
@@ -900,23 +914,16 @@
 			"button",
 			".append(\"text\")",
 			"text",
-			"forEach",
-			"round",
-			"bands",
-			"cityView",
-			"labelVarView",
-			"conso",
-			"(d)",
-			"varview.d",
-			"console",
-			"city2"
+			"forEach"
 		],
 		"highlight": true,
 		"in_selection": false,
 		"preserve_case": false,
-		"regex": true,
+		"regex": false,
 		"replace_history":
 		[
+			"\"float\":",
+			"\"class\":",
 			"#f4f4f4",
 			"\"green\"",
 			"chart3",
@@ -949,15 +956,15 @@
 					"file": "js/layout.js",
 					"settings":
 					{
-						"buffer_size": 5930,
+						"buffer_size": 6063,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								505,
-								505
+								2854,
+								2776
 							]
 						],
 						"settings":
@@ -979,21 +986,22 @@
 					"file": "index.html",
 					"settings":
 					{
-						"buffer_size": 7041,
+						"buffer_size": 9110,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								5938,
-								5938
+								164,
+								164
 							]
 						],
 						"settings":
 						{
 							"incomplete_sync": null,
 							"remote_loading": false,
+							"spell_check": false,
 							"synced": false,
 							"syntax": "Packages/HTML/HTML.tmLanguage",
 							"translate_tabs_to_spaces": false
@@ -1009,15 +1017,15 @@
 					"file": "wood.css",
 					"settings":
 					{
-						"buffer_size": 2091,
+						"buffer_size": 2602,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								237,
-								237
+								388,
+								388
 							]
 						],
 						"settings":
@@ -1029,7 +1037,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 2.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -1037,23 +1045,21 @@
 			]
 		},
 		{
-			"selected": 2,
 			"sheets":
 			[
 				{
 					"buffer": 3,
-					"file": "js/chart1.varView.js",
 					"settings":
 					{
-						"buffer_size": 7961,
+						"buffer_size": 1038,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								497,
-								497
+								1038,
+								57
 							]
 						],
 						"settings":
@@ -1061,8 +1067,7 @@
 							"incomplete_sync": null,
 							"remote_loading": false,
 							"synced": false,
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"translate_tabs_to_spaces": false
+							"syntax": "Packages/HTML/HTML.tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -1072,18 +1077,18 @@
 				},
 				{
 					"buffer": 4,
-					"file": "js/chart1.condensedView.js",
+					"file": "js/chart3.js",
 					"settings":
 					{
-						"buffer_size": 5719,
+						"buffer_size": 7177,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								722,
-								722
+								275,
+								275
 							]
 						],
 						"settings":
@@ -1101,19 +1106,19 @@
 					"type": "text"
 				},
 				{
-					"buffer": 5,
-					"file": "js/chart2.condensedView.js",
+					"buffer": 0,
+					"file": "js/layout.js",
 					"settings":
 					{
-						"buffer_size": 4576,
+						"buffer_size": 6063,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								521,
-								521
+								4463,
+								4463
 							]
 						],
 						"settings":
@@ -1197,6 +1202,10 @@
 		"height": 0.0,
 		"selected_items":
 		[
+			[
+				"chart3",
+				"js/chart3.js"
+			],
 			[
 				"chart1conde",
 				"js/chart1.condensedView.js"

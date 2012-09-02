@@ -165,3 +165,9 @@ h2 {
 	border-left-right: solid;
 	border-color: "black";
 }
+
+#rodape {
+	margin-top: 80px;
+	font-style: italic;
+	font-size: 11px;
+}
